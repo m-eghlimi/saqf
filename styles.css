@@ -1,0 +1,63 @@
+:root {
+    --background-color-light: #ffffff;
+    --background-color-dark: #181818;
+    --text-color-light: #181818;
+    --text-color-dark: #ffffff;
+}
+
+body.light-theme {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+}
+
+body.dark-theme {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.coming-soon {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.telegram-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: inherit;
+}
+
+.telegram-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#theme-icon {
+    font-size: 2em;
+}
+
+.sun::before {
+    content: "☀️";
+}
+
+.moon::before {
+    content: "🌙";
+}
