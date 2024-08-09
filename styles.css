@@ -1,31 +1,108 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>به زودی</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="theme-toggle" id="theme-toggle">
-            <i id="theme-icon" class="fas fa-moon"></i>
-        </div>
-        <h1 class="coming-soon">
-            Coming Soon
-            <span class="background-animation"></span>
-        </h1>
-        <footer>
-            <a href="https://t.me/saqf_channel" class="telegram-link">
-                <div class="bubble-container">
-                    <i class="fab fa-telegram telegram-icon"></i>
-                    <span class="bold-text">کانال تلگرام ما</span>
-                </div>
-            </a>
-            <p>© 2024 تمامی حقوق محفوظ است</p>
-        </footer>
-    </div>
-</body>
-</html>
+:root {
+    --background-color-light: #ffffff;
+    --background-color-dark: #181818;
+    --text-color-light: #181818;
+    --text-color-dark: #ffffff;
+    --telegram-blue: #0088cc;
+}
+
+body.light-theme {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+}
+
+body.dark-theme {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.coming-soon {
+    font-size: 2.8em;
+    margin-bottom: 70px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.background-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+    animation: pulse 3s infinite;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.telegram-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: white;
+    background-color: var(--telegram-blue);
+    padding: 10px 20px;
+    border-radius: 20px; /* منحنی گوشه‌ها */
+    margin-top: 10px; /* مکان بالاتر */
+    position: relative;
+}
+
+.telegram-icon {
+    font-size: 2em; /* بزرگ‌تر کردن آیکون تلگرام */
+    margin: 0; /* حذف فاصله‌ها و مرکز کردن */
+}
+
+.bold-text {
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#theme-icon {
+    font-size: 20px; 
+}
+
+footer {
+    position: absolute;
+    bottom: 30px; /* بالاتر آوردن دکمه تلگرام */
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--text-color-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
