@@ -2,21 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
 
-    // Check for saved user preference, if any, on load
-    const currentTheme = localStorage.getItem("theme") || "light";
-    document.body.classList.add(currentTheme + "-theme");
-    themeIcon.classList.add(currentTheme === "light" ? "sun" : "moon");
+    // بررسی تم تلگرام و تنظیم تم وب اپ
+    const isDarkMode = window.Telegram.WebApp.themeParams.bg_color.includes("1a1a1a");
+    document.body.classList.add(isDarkMode ? "dark-theme" : "light-theme");
+    themeIcon.src = isDarkMode ? "sun-icon.png" : "moon-icon.png";
 
-    // Listen for the toggle button click
+    // سوئیچ تم و تغییر آیکون
     themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("light-theme");
+        const isLight = document.body.classList.toggle("light-theme");
         document.body.classList.toggle("dark-theme");
 
-        const newTheme = document.body.classList.contains("light-theme") ? "light" : "dark";
-        themeIcon.classList.toggle("sun");
-        themeIcon.classList.toggle("moon");
-
-        // Save the new preference in local storage
-        localStorage.setItem("theme", newTheme);
+        themeIcon.src = isLight ? "moon-icon.png" : "sun-icon.png";
     });
 });
