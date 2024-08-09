@@ -3,6 +3,7 @@
     --background-color-dark: #181818;
     --text-color-light: #181818;
     --text-color-dark: #ffffff;
+    --telegram-blue: #0088cc;
 }
 
 body.light-theme {
@@ -22,70 +23,127 @@ body.dark-theme {
     justify-content: center;
     height: 100vh;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .coming-soon {
-    font-size: 3em;
-    margin-bottom: 20px;
+    font-size: 2.8em;
+    margin-bottom: 70px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.background-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+    animation: pulse 3s infinite;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 .telegram-link {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
-    font-size: 1.2em;
-    color: inherit;
+    font-size: 1.5em;
+    color: var(--telegram-blue);
     position: relative;
     overflow: hidden;
+    margin-top: 50px;
 }
 
 .bubble-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: var(--telegram-blue);
+    border-radius: 50px;
+    color: white;
+    overflow: hidden;
+}
+
+.bold-text {
+    font-weight: bold;
+    margin-left: 10px;
 }
 
 .telegram-icon {
-    width: 100%;
-    height: 100%;
-    z-index: 2;
+    font-size: 1.5em;
     position: relative;
+    z-index: 2;
 }
 
 .bubble {
     position: absolute;
-    bottom: 0;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
-    animation: bubble 3s infinite;
+    animation: bubble-horizontal 4s infinite;
     z-index: 1;
 }
 
-.bubble:nth-child(2) {
-    width: 15px;
-    height: 15px;
-    animation-duration: 4s;
+.bubble:nth-child(3) {
+    width: 10px;
+    height: 10px;
+    animation-duration: 5s;
     animation-delay: 1s;
 }
 
-.bubble:nth-child(3) {
-    width: 20px;
-    height: 20px;
-    animation-duration: 5s;
+.bubble:nth-child(4) {
+    width: 12px;
+    height: 12px;
+    animation-duration: 6s;
     animation-delay: 2s;
 }
 
-@keyframes bubble {
+.bubble:nth-child(5) {
+    width: 6px;
+    height: 6px;
+    animation-duration: 5.5s;
+    animation-delay: 0.5s;
+}
+
+.bubble:nth-child(6) {
+    width: 7px;
+    height: 7px;
+    animation-duration: 4.5s;
+    animation-delay: 1.5s;
+}
+
+@keyframes bubble-horizontal {
     0% {
-        transform: translateY(0) scale(1);
+        transform: translateX(0) scale(1);
         opacity: 1;
     }
+    50% {
+        transform: translateX(100%) scale(1.5);
+        opacity: 0.5;
+    }
     100% {
-        transform: translateY(-100px) scale(1.5);
-        opacity: 0;
+        transform: translateX(-100%) scale(1);
+        opacity: 1;
     }
 }
 
@@ -97,13 +155,15 @@ body.dark-theme {
 }
 
 #theme-icon {
-    font-size: 2em;
+    font-size: 25px;
+    color: #000;
 }
 
-.sun::before {
-    content: "☀️";
-}
-
-.moon::before {
-    content: "🌙";
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--text-color-light);
 }
