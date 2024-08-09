@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isDarkMode = window.Telegram.WebApp.themeParams.bg_color.includes("1a1a1a");
     document.body.classList.add(isDarkMode ? "dark-theme" : "light-theme");
     themeIcon.className = isDarkMode ? "fas fa-sun" : "fas fa-moon";
+    themeIcon.style.color = isDarkMode ? "white" : "black";
 
     // سوئیچ تم و تغییر آیکون
     themeToggle.addEventListener("click", () => {
@@ -14,5 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const isLight = document.body.classList.contains("light-theme");
         themeIcon.className = isLight ? "fas fa-moon" : "fas fa-sun";
+        themeIcon.style.color = isLight ? "black" : "white";
     });
 });
