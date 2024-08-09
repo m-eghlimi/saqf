@@ -30,7 +30,7 @@ body.dark-theme {
 .coming-soon {
     font-size: 2.8em;
     margin-bottom: 70px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* سایه بیشتر */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     position: relative;
 }
 
@@ -65,22 +65,24 @@ body.dark-theme {
     justify-content: center;
     text-decoration: none;
     font-size: 1.5em;
-    color: white; /* رنگ سفید برای متن */
+    color: white;
     background-color: var(--telegram-blue);
     padding: 10px 20px;
-    border-radius: 50px;
+    border-radius: 20px; /* منحنی گوشه‌ها */
     margin-top: 20px;
     position: relative;
 }
 
 .telegram-icon {
-    font-size: 1.5em;
-    margin-right: 10px;
+    font-size: 2em; /* بزرگ‌تر کردن آیکون تلگرام */
+    margin-right: 0; /* حذف فاصله راست */
+    margin-left: 10px; /* فاصله از متن */
 }
 
 .bold-text {
     font-weight: bold;
     color: white;
+    margin-left: 10px;
 }
 
 .theme-toggle {
@@ -91,12 +93,12 @@ body.dark-theme {
 }
 
 #theme-icon {
-    font-size: 20px; /* سایز کوچک‌تر */
+    font-size: 20px; 
 }
 
 footer {
     position: absolute;
-    bottom: 10px;
+    bottom: 40px; /* بالاتر آوردن دکمه تلگرام */
     width: 100%;
     text-align: center;
     font-size: 0.8em;
