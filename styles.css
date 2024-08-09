@@ -24,7 +24,7 @@ body.dark-theme {
     height: 100vh;
     text-align: center;
     position: relative;
-    overflow: hidden; /* برای جلوگیری از تکان خوردن صفحه */
+    overflow: hidden;
 }
 
 .coming-soon {
@@ -155,18 +155,8 @@ body.dark-theme {
 }
 
 #theme-icon {
-    font-size: 25px;
-    color: #000; /* آیکون سیاه و سفید */
-}
-
-body.light-theme #theme-icon {
-    content: "\f186"; /* آیکون خورشید */
-    color: #000;
-}
-
-body.dark-theme #theme-icon {
-    content: "\f185"; /* آیکون ماه */
-    color: #fff;
+    width: 25px;
+    height: 25px;
 }
 
 footer {
