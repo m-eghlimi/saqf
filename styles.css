@@ -27,7 +27,7 @@ body.dark-theme {
 
 .coming-soon {
     font-size: 2.8em; /* کمی کوچکتر شده */
-    margin-bottom: 40px; /* افزایش فاصله برای پایین‌تر رفتن لینک تلگرام */
+    margin-bottom: 50px; /* افزایش فاصله برای پایین‌تر رفتن لینک تلگرام */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* سایه متن */
 }
 
@@ -40,7 +40,7 @@ body.dark-theme {
     color: var(--telegram-blue);
     position: relative;
     overflow: hidden;
-    margin-top: 20px; /* برای پایین‌تر آمدن دکمه */
+    margin-top: 30px; /* برای پایین‌تر آمدن دکمه */
 }
 
 .bubble-container {
@@ -56,8 +56,7 @@ body.dark-theme {
 }
 
 .telegram-icon {
-    width: 30px;
-    height: 30px;
+    font-size: 1.5em;
     margin-right: 10px;
     position: relative;
     z-index: 2;
@@ -107,6 +106,13 @@ body.dark-theme {
 }
 
 #theme-icon {
-    width: 40px;
-    height: 40px;
+    font-size: 40px;
+    color: #000; /* آیکون سیاه و سفید تلگرام */
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 0.8em;
+    color: var(--text-color-light);
 }
