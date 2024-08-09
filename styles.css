@@ -1,7 +1,7 @@
 :root {
     --background-color-light: #ffffff;
-    --background-color-dark: #181818;
-    --text-color-light: #181818;
+    --background-color-dark: #121212;
+    --text-color-light: #000000;
     --text-color-dark: #ffffff;
     --telegram-blue: #0088cc;
 }
@@ -23,13 +23,12 @@ body.dark-theme {
     justify-content: center;
     height: 100vh;
     text-align: center;
-    position: relative;
     overflow: hidden;
 }
 
 .coming-soon {
-    font-size: 2.8em;
-    margin-bottom: 70px;
+    font-size: 2rem;
+    margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     position: relative;
 }
@@ -43,7 +42,7 @@ body.dark-theme {
     color: var(--telegram-blue);
     position: relative;
     overflow: hidden;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .bubble-container {
@@ -51,12 +50,11 @@ body.dark-theme {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: var(--telegram-blue);
     border-radius: 50px;
     color: white;
-    overflow: hidden;
-    box-shadow: 0px 0px 15px rgba(0, 136, 204, 0.5);
+    box-shadow: 0px 5px 15px rgba(0, 136, 204, 0.5);
 }
 
 .bold-text {
@@ -75,19 +73,6 @@ body.dark-theme {
     top: 20px;
     right: 20px;
     cursor: pointer;
-}
-
-#theme-icon {
-    width: 30px;
-    height: 30px;
-}
-
-body.light-theme #theme-icon {
-    content: url('telegram-moon-icon.png'); /* آیکون ماه برای تم روشن */
-}
-
-body.dark-theme #theme-icon {
-    content: url('telegram-sun-icon.png'); /* آیکون خورشید برای تم تیره */
 }
 
 footer {
