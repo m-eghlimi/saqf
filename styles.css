@@ -30,7 +30,7 @@ body.dark-theme {
 .coming-soon {
     font-size: 2.8em;
     margin-bottom: 70px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* سایه بیشتر */
     position: relative;
 }
 
@@ -65,86 +65,22 @@ body.dark-theme {
     justify-content: center;
     text-decoration: none;
     font-size: 1.5em;
-    color: var(--telegram-blue);
-    position: relative;
-    overflow: hidden;
-    margin-top: 50px;
-}
-
-.bubble-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 10px 20px;
+    color: white; /* رنگ سفید برای متن */
     background-color: var(--telegram-blue);
+    padding: 10px 20px;
     border-radius: 50px;
-    color: white;
-    overflow: hidden;
-}
-
-.bold-text {
-    font-weight: bold;
-    margin-left: 10px;
+    margin-top: 20px;
+    position: relative;
 }
 
 .telegram-icon {
     font-size: 1.5em;
-    position: relative;
-    z-index: 2;
+    margin-right: 10px;
 }
 
-.bubble {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    animation: bubble-horizontal 4s infinite;
-    z-index: 1;
-}
-
-.bubble:nth-child(3) {
-    width: 10px;
-    height: 10px;
-    animation-duration: 5s;
-    animation-delay: 1s;
-}
-
-.bubble:nth-child(4) {
-    width: 12px;
-    height: 12px;
-    animation-duration: 6s;
-    animation-delay: 2s;
-}
-
-.bubble:nth-child(5) {
-    width: 6px;
-    height: 6px;
-    animation-duration: 5.5s;
-    animation-delay: 0.5s;
-}
-
-.bubble:nth-child(6) {
-    width: 7px;
-    height: 7px;
-    animation-duration: 4.5s;
-    animation-delay: 1.5s;
-}
-
-@keyframes bubble-horizontal {
-    0% {
-        transform: translateX(0) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: translateX(100%) scale(1.5);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateX(-100%) scale(1);
-        opacity: 1;
-    }
+.bold-text {
+    font-weight: bold;
+    color: white;
 }
 
 .theme-toggle {
@@ -155,8 +91,7 @@ body.dark-theme {
 }
 
 #theme-icon {
-    font-size: 25px;
-    color: #000;
+    font-size: 20px; /* سایز کوچک‌تر */
 }
 
 footer {
@@ -166,4 +101,7 @@ footer {
     text-align: center;
     font-size: 0.8em;
     color: var(--text-color-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
