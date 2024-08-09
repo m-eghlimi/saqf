@@ -64,29 +64,24 @@ body.dark-theme {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: white;
     background-color: var(--telegram-blue);
-    padding: 10px 20px;
-    border-radius: 20px; /* منحنی گوشه‌ها */
-    margin-top: 20px; /* مکان بالاتر */
+    padding: 8px 16px;
+    border-radius: 25px;
+    margin-top: 20px;
     position: relative;
-    margin-bottom: 25px; /* 15px بالاتر از متن تمامی حقوق محفوظ است */
+    margin-bottom: 25px;
 }
 
 .telegram-icon {
-    font-size: 2em; /* بزرگ‌تر کردن آیکون تلگرام */
-    margin-right: 0; /* حذف فاصله راست */
-    margin-left: 10px; /* فاصله از متن */
-    position: relative;
-    left: 0;
-    transform: translateX(-50%); /* مرکز کردن آیکون */
+    font-size: 1.8em;
+    margin-left: 10px;
 }
 
 .bold-text {
     font-weight: bold;
     color: white;
-    margin: 0 auto; /* مرکز کردن متن */
     text-align: center;
 }
 
@@ -98,17 +93,15 @@ body.dark-theme {
 }
 
 #theme-icon {
-    font-size: 20px; 
+    font-size: 18px;
 }
 
-footer {
-    position: absolute;
-    bottom: 20px; /* بالاتر آوردن دکمه تلگرام */
-    width: 100%;
+footer p {
     text-align: center;
     font-size: 0.8em;
+    margin: 0;
     color: var(--text-color-light);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
 }
