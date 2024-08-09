@@ -3,7 +3,6 @@
     --background-color-dark: #181818;
     --text-color-light: #181818;
     --text-color-dark: #ffffff;
-    --telegram-blue: #0088cc;
 }
 
 body.light-theme {
@@ -26,76 +25,22 @@ body.dark-theme {
 }
 
 .coming-soon {
-    font-size: 2.8em; /* کمی کوچکتر شده */
-    margin-bottom: 50px; /* افزایش فاصله برای پایین‌تر رفتن لینک تلگرام */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* سایه متن */
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 
 .telegram-link {
     display: flex;
     align-items: center;
-    justify-content: center;
     text-decoration: none;
-    font-size: 1.5em;
-    color: var(--telegram-blue);
-    position: relative;
-    overflow: hidden;
-    margin-top: 30px; /* برای پایین‌تر آمدن دکمه */
-}
-
-.bubble-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 10px 20px;
-    background-color: var(--telegram-blue);
-    border-radius: 50px;
-    color: white;
-    overflow: hidden;
+    font-size: 1.2em;
+    color: inherit;
 }
 
 .telegram-icon {
-    font-size: 1.5em;
+    width: 30px;
+    height: 30px;
     margin-right: 10px;
-    position: relative;
-    z-index: 2;
-}
-
-.bubble {
-    position: absolute;
-    bottom: 0;
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    animation: bubble 3s infinite;
-    z-index: 1;
-}
-
-.bubble:nth-child(2) {
-    width: 15px;
-    height: 15px;
-    animation-duration: 4s;
-    animation-delay: 1s;
-}
-
-.bubble:nth-child(3) {
-    width: 20px;
-    height: 20px;
-    animation-duration: 5s;
-    animation-delay: 2s;
-}
-
-@keyframes bubble {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100px) scale(1.5);
-        opacity: 0;
-    }
 }
 
 .theme-toggle {
@@ -106,13 +51,13 @@ body.dark-theme {
 }
 
 #theme-icon {
-    font-size: 40px;
-    color: #000; /* آیکون سیاه و سفید تلگرام */
+    font-size: 2em;
 }
 
-footer {
-    position: absolute;
-    bottom: 10px;
-    font-size: 0.8em;
-    color: var(--text-color-light);
+.sun::before {
+    content: "☀️";
+}
+
+.moon::before {
+    content: "🌙";
 }
