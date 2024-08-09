@@ -3,6 +3,7 @@
     --background-color-dark: #181818;
     --text-color-light: #181818;
     --text-color-dark: #ffffff;
+    --telegram-blue: #0088cc;
 }
 
 body.light-theme {
@@ -25,32 +26,41 @@ body.dark-theme {
 }
 
 .coming-soon {
-    font-size: 3em;
-    margin-bottom: 20px;
+    font-size: 2.8em; /* کمی کوچکتر شده */
+    margin-bottom: 40px; /* افزایش فاصله برای پایین‌تر رفتن لینک تلگرام */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* سایه متن */
 }
 
 .telegram-link {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
-    font-size: 1.2em;
-    color: inherit;
+    font-size: 1.5em;
+    color: var(--telegram-blue);
     position: relative;
     overflow: hidden;
+    margin-top: 20px; /* برای پایین‌تر آمدن دکمه */
 }
 
 .bubble-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: var(--telegram-blue);
+    border-radius: 50px;
+    color: white;
+    overflow: hidden;
 }
 
 .telegram-icon {
-    width: 100%;
-    height: 100%;
-    z-index: 2;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
     position: relative;
+    z-index: 2;
 }
 
 .bubble {
@@ -97,13 +107,6 @@ body.dark-theme {
 }
 
 #theme-icon {
-    font-size: 2em;
-}
-
-.sun::before {
-    content: "☀️";
-}
-
-.moon::before {
-    content: "🌙";
+    width: 40px;
+    height: 40px;
 }
