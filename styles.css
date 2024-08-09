@@ -23,12 +23,39 @@ body.dark-theme {
     justify-content: center;
     height: 100vh;
     text-align: center;
+    position: relative;
 }
 
 .coming-soon {
-    font-size: 2.8em; /* کمی کوچکتر شده */
-    margin-bottom: 50px; /* افزایش فاصله برای پایین‌تر رفتن لینک تلگرام */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* سایه متن */
+    font-size: 2.8em;
+    margin-bottom: 70px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.background-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+    animation: pulse 3s infinite;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 .telegram-link {
@@ -40,7 +67,7 @@ body.dark-theme {
     color: var(--telegram-blue);
     position: relative;
     overflow: hidden;
-    margin-top: 30px; /* برای پایین‌تر آمدن دکمه */
+    margin-top: 50px; /* برای پایین‌تر آمدن دکمه */
 }
 
 .bubble-container {
@@ -107,12 +134,14 @@ body.dark-theme {
 
 #theme-icon {
     font-size: 40px;
-    color: #000; /* آیکون سیاه و سفید تلگرام */
+    color: #000; /* آیکون سیاه و سفید */
 }
 
 footer {
     position: absolute;
     bottom: 10px;
+    width: 100%;
+    text-align: center;
     font-size: 0.8em;
     color: var(--text-color-light);
 }
