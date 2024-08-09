@@ -44,19 +44,6 @@ body.dark-theme {
     position: relative;
     overflow: hidden;
     margin-top: 50px;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
 }
 
 .bubble-container {
@@ -78,9 +65,29 @@ body.dark-theme {
 }
 
 .telegram-icon {
-    font-size: 1.5em;
-    position: relative;
-    z-index: 2;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#theme-icon {
+    width: 30px;
+    height: 30px;
+}
+
+body.light-theme #theme-icon {
+    content: url('telegram-moon-icon.png'); /* آیکون ماه برای تم روشن */
+}
+
+body.dark-theme #theme-icon {
+    content: url('telegram-sun-icon.png'); /* آیکون خورشید برای تم تیره */
 }
 
 footer {
