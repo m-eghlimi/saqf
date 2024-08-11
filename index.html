@@ -30,6 +30,8 @@
             right: 10px;
             cursor: pointer;
             font-size: 1.5rem;
+            display: flex;
+            align-items: center;
         }
 
         .coming-soon {
@@ -72,7 +74,7 @@
 <body>
 
     <div class="theme-switch" id="theme-switch">
-        🌙
+        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
     </div>
 
     <div class="coming-soon">
@@ -88,6 +90,39 @@
         © 2024 تمامی حقوق محفوظ
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const themeSwitch = document.getElementById('theme-switch');
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+
+            // بررسی پارامترهای تم ارسال شده توسط تلگرام
+            const telegramThemeParams = Telegram.WebApp.themeParams;
+
+            if (telegramThemeParams) {
+                // اگر تم دارک است، کلاس dark-mode اضافه شود
+                if (telegramThemeParams.theme === "dark") {
+                    body.classList.add("dark-mode");
+                    themeIcon.setAttribute("fill", "white");
+                    themeIcon.setAttribute("stroke", "white");
+                }
+            }
+
+            // فانکشن برای تغییر تم توسط کاربر
+            function toggleTheme() {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    themeIcon.setAttribute("fill", "white");
+                    themeIcon.setAttribute("stroke", "white");
+                } else {
+                    themeIcon.setAttribute("fill", "none");
+                    themeIcon.setAttribute("stroke", "black");
+                }
+            }
+
+            // تخصیص فانکشن تغییر تم به دکمه
+            themeSwitch.addEventListener('click', toggleTheme);
+        });
+    </script>
 </body>
 </html>
