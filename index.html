@@ -27,11 +27,8 @@
         .theme-switch {
             position: absolute;
             top: 10px;
-            right: 30px; /* فاصله از لبه راست */
+            right: 30px;
             cursor: pointer;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
         }
 
         .coming-soon {
@@ -69,12 +66,18 @@
             text-align: center;
             width: 100%;
         }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
     </style>
 </head>
 <body>
 
     <div class="theme-switch" id="theme-switch">
-        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
+        <!-- آیکون خورشید برای تم دارک و آیکون ماه برای تم لایت -->
+        <img id="theme-icon" class="icon" src="https://upload.wikimedia.org/wikipedia/commons/0/01/Sun_icon.svg" alt="تم">
     </div>
 
     <div class="coming-soon">
@@ -96,32 +99,27 @@
             const body = document.body;
             const themeIcon = document.getElementById('theme-icon');
 
-            // بررسی پارامترهای تم ارسال شده توسط تلگرام
-            const telegramThemeParams = Telegram.WebApp.themeParams;
-
-            if (telegramThemeParams) {
-                // اگر تم دارک است، کلاس dark-mode اضافه شود
-                if (telegramThemeParams.theme === "dark") {
-                    body.classList.add("dark-mode");
-                    themeIcon.setAttribute("fill", "white");
-                    themeIcon.setAttribute("stroke", "white");
-                }
-            }
-
-            // فانکشن برای تغییر تم توسط کاربر
-            function toggleTheme() {
-                body.classList.toggle('dark-mode');
+            // بررسی تم فعلی و تنظیم آیکون مناسب
+            function updateIcon() {
                 if (body.classList.contains('dark-mode')) {
-                    themeIcon.setAttribute("fill", "white");
-                    themeIcon.setAttribute("stroke", "white");
+                    themeIcon.src = "https://upload.wikimedia.org/wikipedia/commons/0/01/Sun_icon.svg";
                 } else {
-                    themeIcon.setAttribute("fill", "none");
-                    themeIcon.setAttribute("stroke", "black");
+                    themeIcon.src = "https://upload.wikimedia.org/wikipedia/commons/6/6e/Moon_icon.svg";
                 }
             }
 
-            // تخصیص فانکشن تغییر تم به دکمه
-            themeSwitch.addEventListener('click', toggleTheme);
+            // تنظیم تم بر اساس تم فعلی تلگرام
+            const telegramThemeParams = Telegram.WebApp.themeParams;
+            if (telegramThemeParams && telegramThemeParams.theme === "dark") {
+                body.classList.add("dark-mode");
+            }
+            updateIcon();
+
+            // تغییر تم و آیکون با کلیک روی دکمه
+            themeSwitch.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                updateIcon();
+            });
         });
     </script>
 </body>
