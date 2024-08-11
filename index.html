@@ -1,29 +1,92 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>به زودی</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وب اپ تلگرام</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            font-family: 'Vazir', sans-serif;
+            background-color: white;
+            color: black;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .theme-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .coming-soon {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+
+        .telegram-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0088cc;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .telegram-btn:hover {
+            background-color: #0077bb;
+        }
+
+        .telegram-btn .icon {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="coming-soon">
-            Coming Soon
-            <span class="background-animation"></span>
-        </h1>
-        <footer>
-            <a href="https://t.me/saqf_channel" class="telegram-link">
-                <i class="fab fa-telegram telegram-icon"></i>
-                <span class="bold-text">کانال تلگرام ما</span>
-            </a>
-            <p>© 2024 تمامی حقوق محفوظ است</p>
-        </footer>
-        <div class="theme-toggle" id="theme-toggle">
-            <i id="theme-icon" class="fas fa-moon"></i>
-        </div>
+
+    <div class="theme-switch" onclick="toggleTheme()">
+        <span id="theme-icon">☀️</span>
     </div>
+
+    <div class="coming-soon">
+        Coming Soon
+    </div>
+
+    <a href="http://t.me/saqf_channel" class="telegram-btn">
+        کانال تلگرام ما
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo" class="icon">
+    </a>
+
+    <footer>
+        تمامی حقوق محفوظ است و ...
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
