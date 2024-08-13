@@ -1,125 +1,126 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>وب اپ تلگرام</title>
+    <title>SAQF - Support for Iranian Immigrants</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Halant&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
     <style>
+        :root {
+            --turquoise-blue: #30D5C8;
+            --dark-turquoise: #00A693;
+            --light-gray: #F0F0F0;
+        }
         body {
+            font-family: 'Vazirmatn', 'Halant', sans-serif;
             margin: 0;
+            padding: 0;
+            background-color: var(--light-gray);
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: var(--turquoise-blue);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: var(--dark-turquoise);
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style-type: none;
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            font-family: 'Vazir', sans-serif;
-            background-color: white;
-            color: black;
-            transition: all 0.3s ease;
         }
-
-        .dark-mode {
-            background-color: black;
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
             color: white;
+            text-decoration: none;
         }
-
-        .theme-switch {
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            width: calc(33% - 1rem);
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+        }
+        .language-selector {
             position: absolute;
             top: 10px;
-            right: 30px;
-            cursor: pointer;
-        }
-
-        .coming-soon {
-            font-size: 2rem;
-            margin: 20px 0;
-        }
-
-        .telegram-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #0088cc;
-            color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .telegram-btn:hover {
-            background-color: #0077bb;
-        }
-
-        .telegram-btn .icon {
-            margin-left: 10px;
-            width: 20px;
-            height: 20px;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 10px;
-            text-align: center;
-            width: 100%;
-        }
-
-        .icon {
-            width: 24px;
-            height: 24px;
+            right: 10px;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>SAQF</h1>
+        <p>Support for Iranian Immigrants</p>
+    </header>
 
-    <div class="theme-switch" id="theme-switch">
-        <!-- آیکون خورشید برای تم دارک و آیکون ماه برای تم لایت -->
-        <img id="theme-icon" class="icon" src="https://upload.wikimedia.org/wikipedia/commons/0/01/Sun_icon.svg" alt="تم">
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#marketplace">Marketplace</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#profile">Profile</a></li>
+        </ul>
+    </nav>
+
+    <div class="language-selector">
+        <select id="language">
+            <option value="en">English</option>
+            <option value="fa">فارسی</option>
+            <option value="tr">Türkçe</option>
+        </select>
     </div>
 
-    <div class="coming-soon">
-        Coming Soon
+    <div class="container">
+        <div class="main-content">
+            <div class="card">
+                <h2>Migration Information</h2>
+                <p>Find up-to-date information on immigration processes and legal advice.</p>
+            </div>
+            <div class="card">
+                <h2>Job Opportunities</h2>
+                <p>Explore job listings and networking opportunities for Iranian immigrants.</p>
+            </div>
+            <div class="card">
+                <h2>Cultural Events</h2>
+                <p>Discover Iranian cultural events and activities in your area.</p>
+            </div>
+        </div>
     </div>
-
-    <a href="http://t.me/saqf_channel" class="telegram-btn">
-        کانال تلگرام ما
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo" class="icon">
-    </a>
-
-    <footer>
-        © 2024 تمامی حقوق محفوظ
-    </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const themeSwitch = document.getElementById('theme-switch');
-            const body = document.body;
-            const themeIcon = document.getElementById('theme-icon');
+        feather.replace()
 
-            // بررسی تم فعلی و تنظیم آیکون مناسب
-            function updateIcon() {
-                if (body.classList.contains('dark-mode')) {
-                    themeIcon.src = "https://upload.wikimedia.org/wikipedia/commons/0/01/Sun_icon.svg";
-                } else {
-                    themeIcon.src = "https://upload.wikimedia.org/wikipedia/commons/6/6e/Moon_icon.svg";
-                }
-            }
-
-            // تنظیم تم بر اساس تم فعلی تلگرام
-            const telegramThemeParams = Telegram.WebApp.themeParams;
-            if (telegramThemeParams && telegramThemeParams.theme === "dark") {
-                body.classList.add("dark-mode");
-            }
-            updateIcon();
-
-            // تغییر تم و آیکون با کلیک روی دکمه
-            themeSwitch.addEventListener('click', function() {
-                body.classList.toggle('dark-mode');
-                updateIcon();
-            });
+        document.getElementById('language').addEventListener('change', function() {
+            // Here you would implement the language change functionality
+            console.log('Language changed to: ' + this.value);
         });
     </script>
 </body>
