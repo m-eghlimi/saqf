@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
     <title>SAQF - Support for Iranian Immigrants</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Halant&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&family=Shabnam&family=Halant&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     <style>
         :root {
@@ -14,7 +13,7 @@
             --light-gray: #F0F0F0;
         }
         body {
-            font-family: 'Vazirmatn', 'Halant', sans-serif;
+            font-family: 'Halant', 'Vazirmatn', 'Shabnam', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--light-gray);
@@ -61,6 +60,10 @@
             padding: 1rem;
             margin-bottom: 1rem;
             width: calc(33% - 1rem);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
         @media (max-width: 768px) {
             .card {
@@ -71,6 +74,43 @@
             position: absolute;
             top: 10px;
             right: 10px;
+        }
+        .auth-buttons {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .button {
+            background-color: var(--dark-turquoise);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: var(--turquoise-blue);
+        }
+        #marketplace {
+            display: none;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem;
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -84,7 +124,7 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#resources">Resources</a></li>
-            <li><a href="#marketplace">Marketplace</a></li>
+            <li><a href="#marketplace" id="marketplace-btn">Marketplace</a></li>
             <li><a href="#community">Community</a></li>
             <li><a href="#profile">Profile</a></li>
         </ul>
@@ -98,8 +138,13 @@
         </select>
     </div>
 
+    <div class="auth-buttons">
+        <button class="button" id="login-btn">Login</button>
+        <button class="button" id="signup-btn">Sign Up</button>
+    </div>
+
     <div class="container">
-        <div class="main-content">
+        <div id="home" class="main-content">
             <div class="card">
                 <h2>Migration Information</h2>
                 <p>Find up-to-date information on immigration processes and legal advice.</p>
@@ -113,14 +158,58 @@
                 <p>Discover Iranian cultural events and activities in your area.</p>
             </div>
         </div>
+
+        <div id="marketplace" class="main-content">
+            <h2>Marketplace</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="placeholder.jpg" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p>$19.99</p>
+                    <button class="button">Contact Seller</button>
+                </div>
+                <div class="product-card">
+                    <img src="placeholder.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>$29.99</p>
+                    <button class="button">Contact Seller</button>
+                </div>
+                <!-- Add more product cards as needed -->
+            </div>
+        </div>
     </div>
 
     <script>
         feather.replace()
 
         document.getElementById('language').addEventListener('change', function() {
-            // Here you would implement the language change functionality
-            console.log('Language changed to: ' + this.value);
+            const selectedLanguage = this.value;
+            document.documentElement.lang = selectedLanguage;
+            if (selectedLanguage === 'fa') {
+                document.body.style.direction = 'rtl';
+                document.body.style.textAlign = 'right';
+            } else {
+                document.body.style.direction = 'ltr';
+                document.body.style.textAlign = 'left';
+            }
+            // Here you would implement the full language change functionality
+            console.log('Language changed to: ' + selectedLanguage);
+        });
+
+        document.getElementById('marketplace-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('marketplace').style.display = 'block';
+        });
+
+        document.getElementById('login-btn').addEventListener('click', function() {
+            // Implement login functionality
+            console.log('Login button clicked');
+        });
+
+        document.getElementById('signup-btn').addEventListener('click', function() {
+            // Implement signup functionality
+            console.log('Sign up button clicked');
         });
     </script>
 </body>
