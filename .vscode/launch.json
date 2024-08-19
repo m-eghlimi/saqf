@@ -4,6 +4,15 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        {        <img src="assets/images/image.png" alt="Description of image">
+            "name": "Launch Node.js",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/index.js",
+            "cwd": "${workspaceFolder}"
+        }
+
+
         {
             "name": "Attach to Chrome",
             "port": 9222,
