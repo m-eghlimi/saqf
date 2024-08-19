@@ -1,216 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>SAQF - Support for Iranian Immigrants</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&family=Shabnam&family=Halant&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/feather-icons"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بروزرسانی</title>
     <style>
-        :root {
-            --turquoise-blue: #30D5C8;
-            --dark-turquoise: #00A693;
-            --light-gray: #F0F0F0;
-        }
         body {
-            font-family: 'Halant', 'Vazirmatn', 'Shabnam', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--light-gray);
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background-color: var(--turquoise-blue);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        nav {
-            background-color: var(--dark-turquoise);
-            padding: 0.5rem;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            direction: rtl;
         }
-        nav ul li {
-            margin: 0 1rem;
+
+        h1 {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 50px;
         }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        .main-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 2rem;
-        }
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 1rem;
-            margin-bottom: 1rem;
-            width: calc(33% - 1rem);
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        @media (max-width: 768px) {
-            .card {
-                width: 100%;
-            }
-        }
-        .language-selector {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-        .auth-buttons {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-        .button {
-            background-color: var(--dark-turquoise);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+
+        .lock-icon {
+            width: 50px;
+            height: 50px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-        .button:hover {
-            background-color: var(--turquoise-blue);
+
+        .lock-icon:hover {
+            opacity: 0.8;
         }
-        #marketplace {
-            display: none;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        .product-card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 1rem;
-            text-align: center;
-        }
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
+
+        .button-container {
+            position: absolute;
+            bottom: 50px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>SAQF</h1>
-        <p>Support for Iranian Immigrants</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#marketplace" id="marketplace-btn">Marketplace</a></li>
-            <li><a href="#community">Community</a></li>
-            <li><a href="#profile">Profile</a></li>
-        </ul>
-    </nav>
-
-    <div class="language-selector">
-        <select id="language">
-            <option value="en">English</option>
-            <option value="fa">فارسی</option>
-            <option value="tr">Türkçe</option>
-        </select>
-    </div>
-
-    <div class="auth-buttons">
-        <button class="button" id="login-btn">Login</button>
-        <button class="button" id="signup-btn">Sign Up</button>
-    </div>
-
-    <div class="container">
-        <div id="home" class="main-content">
-            <div class="card">
-                <h2>Migration Information</h2>
-                <p>Find up-to-date information on immigration processes and legal advice.</p>
-            </div>
-            <div class="card">
-                <h2>Job Opportunities</h2>
-                <p>Explore job listings and networking opportunities for Iranian immigrants.</p>
-            </div>
-            <div class="card">
-                <h2>Cultural Events</h2>
-                <p>Discover Iranian cultural events and activities in your area.</p>
-            </div>
-        </div>
-
-        <div id="marketplace" class="main-content">
-            <h2>Marketplace</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="placeholder.jpg" alt="Product 1">
-                    <h3>Product 1</h3>
-                    <p>$19.99</p>
-                    <button class="button">Contact Seller</button>
-                </div>
-                <div class="product-card">
-                    <img src="placeholder.jpg" alt="Product 2">
-                    <h3>Product 2</h3>
-                    <p>$29.99</p>
-                    <button class="button">Contact Seller</button>
-                </div>
-                <!-- Add more product cards as needed -->
-            </div>
-        </div>
+    <h1>بروزرسانی</h1>
+    <div class="button-container">
+        <img src="https://img.icons8.com/ios-filled/50/000000/lock.png" alt="قفل" class="lock-icon" onclick="redirectToAdminPage()">
     </div>
 
     <script>
-        feather.replace()
-
-        document.getElementById('language').addEventListener('change', function() {
-            const selectedLanguage = this.value;
-            document.documentElement.lang = selectedLanguage;
-            if (selectedLanguage === 'fa') {
-                document.body.style.direction = 'rtl';
-                document.body.style.textAlign = 'right';
+        function redirectToAdminPage() {
+            const isAdmin = confirm("آیا شما ادمین هستید؟");
+            if (isAdmin) {
+                window.location.href = "/admin.html";  // آدرس صفحه دوم
             } else {
-                document.body.style.direction = 'ltr';
-                document.body.style.textAlign = 'left';
+                alert("دسترسی غیرمجاز!");
             }
-            // Here you would implement the full language change functionality
-            console.log('Language changed to: ' + selectedLanguage);
-        });
-
-        document.getElementById('marketplace-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('home').style.display = 'none';
-            document.getElementById('marketplace').style.display = 'block';
-        });
-
-        document.getElementById('login-btn').addEventListener('click', function() {
-            // Implement login functionality
-            console.log('Login button clicked');
-        });
-
-        document.getElementById('signup-btn').addEventListener('click', function() {
-            // Implement signup functionality
-            console.log('Sign up button clicked');
-        });
+        }
     </script>
 </body>
 </html>
