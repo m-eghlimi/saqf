@@ -9,7 +9,18 @@
             "port": 9222,
             "request": "attach",
             "type": "chrome",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "            {
+                "version": "0.2.0",
+                "configurations": [
+                    {
+                        "type": "chrome",
+                        "request": "launch",
+                        "name": "Launch Chrome against localhost",
+                        "url": "http://localhost:8080",
+                        "webRoot": "${workspaceFolder}"
+                    }
+                ]
+            }"
         },
         {
             "name": "Launch Chrome",
