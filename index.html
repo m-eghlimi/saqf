@@ -43,17 +43,22 @@
 <body>
     <h1>بروزرسانی</h1>
     <div class="button-container">
-        <img src="https://img.icons8.com/ios-filled/50/000000/lock.png" alt="قفل" class="lock-icon" onclick="redirectToAdminPage()">
+        <img src="https://img.icons8.com/ios-filled/50/000000/lock.png" alt="قفل" class="lock-icon" onclick="checkAdmin()">
     </div>
 
     <script>
-        function redirectToAdminPage() {
-            const isAdmin = confirm("آیا شما ادمین هستید؟");
-            if (isAdmin) {
-                window.location.href = "/admin.html";  // آدرس صفحه دوم
-            } else {
-                alert("دسترسی غیرمجاز!");
-            }
+        function checkAdmin() {
+            // شناسه کاربری شما به عنوان صاحب ربات
+            const adminUserId = 370277082; // این رو با User ID خودت جایگزین کن
+
+            // دریافت اطلاعات کاربر از API تلگرام
+            window.Telegram.WebApp.getUserInfo().then(user => {
+                if (user.id === adminUserId) {
+                    window.location.href = "/admin.html";  // اگر ادمین بودید به صفحه دوم برید
+                } else {
+                    // در غیر این صورت کاری انجام نمی‌دهیم
+                }
+            });
         }
     </script>
 </body>
