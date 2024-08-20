@@ -23,7 +23,7 @@
         }
         .top-nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             padding: 10px 20px;
             background-color: #007bff;
@@ -39,27 +39,19 @@
             width: 50px;
             height: 50px;
             transition: background-color 0.3s;
+            margin-right: 40px;
             background-color: white;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .top-nav .profile-icon img {
-            width: 90%;
-            height: 90%;
+            width: 80%;
+            height: 80%;
             border-radius: 50%;
         }
         .top-nav .profile-icon:hover {
             background-color: rgba(255, 255, 255, 0.2);
-        }
-        .top-nav .toggle-button {
-            cursor: pointer;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
         }
         .main-content {
             padding-top: 70px; /* فاصله از ناوبری بالا */
@@ -76,7 +68,6 @@
 </head>
 <body class="light-mode">
     <div class="top-nav">
-        <button class="toggle-button" onclick="toggleMode()">تغییر حالت</button>
         <div class="profile-icon">
             <!-- آیکون دیفالت پروفایل -->
             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User Profile">
@@ -85,28 +76,5 @@
     <div class="main-content">
         <div class="custom-box"></div> <!-- باکس قرمز جدید -->
     </div>
-    <script>
-        function toggleMode() {
-            const body = document.body;
-            if (body.classList.contains('light-mode')) {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
-                localStorage.setItem('theme', 'light-mode');
-            }
-        }
-
-        // Load the saved theme from localStorage
-        window.onload = function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.body.classList.remove('light-mode', 'dark-mode');
-                document.body.classList.add(savedTheme);
-            }
-        }
-    </script>
 </body>
 </html>
