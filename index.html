@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             transition: background-color 0.3s, color 0.3s;
-            min-height: 00vh; /* اطمینان از پر شدن کامل صفحه */
+            min-height: 100vh; /* اطمینان از پر شدن کامل صفحه */
         }
         .light-mode {
             background-color: white;
@@ -33,10 +33,11 @@
             height: 5%;
             z-index: 1000;
             top: 0;
+            transition: background-color 0.3s;
         }
         .top-nav .profile-icon {
             cursor: pointer;
-            border-radius: 50% 50% 50% 50%;
+            border-radius: 50%;
             width: 43px;
             height: 43px;
             transition: background-color 0.3s;
@@ -57,29 +58,38 @@
 
         /* ظرف اصلی که همه بلوک‌ها را در خود جای می‌دهد */
         .container {
-        /* ظرف اصلی که همه بلوک‌ها را در خود جای می‌دهد */
-        display: flex;
-        padding: 10px 20px 20px; /* فاصله بالایی برای بلوک‌ها */
-        justify-content: space-between; /* بلوک‌ها را در مرکز افقی قرار می‌دهد */
-        overflow-x: auto; /* ایجاد امکان اسکرول افقی */
-        scroll-snap-type: x mandatory; /* استفاده از اسکرول اسنپ برای ایستادن بلوک‌ها در مرکز */
+            display: flex;
+            padding: 10px 20px 20px; /* فاصله بالایی برای بلوک‌ها */
+            justify-content: space-between; /* بلوک‌ها را در مرکز افقی قرار می‌دهد */
+            overflow-x: auto; /* ایجاد امکان اسکرول افقی */
+            scroll-snap-type: x mandatory; /* استفاده از اسکرول اسنپ برای ایستادن بلوک‌ها در مرکز */
+            scroll-behavior: smooth; /* اسکرول نرم */
         }
 
         .MindContent {
-        /* هر بلوک اصلی */
-        flex: none; /* جلوگیری از تغییر اندازه بلوک */
-        width: 450px; /* تنظیم عرض هر بلوک */
-        height: 200px; /* تنظیم ارتفاع هر بلوک */
-        margin: 70px 5px; /* فاصله بین بلوک‌ها */
-        background-color: #a89999; /* رنگ پس‌زمینه سفید برای هر بلوک */
-        border-radius: 6px; /* گرد کردن گوشه‌های هر بلوک */
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* تنظیم سایه دور هر بلوک */
-        position: relative;
-        scroll-snap-align: center; /* هر بلوک را در مرکز اسکرول قرار می‌دهد */
+            flex: none; /* جلوگیری از تغییر اندازه بلوک */
+            width: 450px; /* تنظیم عرض هر بلوک */
+            height: 200px; /* تنظیم ارتفاع هر بلوک */
+            margin: 70px 5px; /* فاصله بین بلوک‌ها */
+            background-color: #a89999; /* رنگ پس‌زمینه سفید برای هر بلوک */
+            border-radius: 6px; /* گرد کردن گوشه‌های هر بلوک */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* تنظیم سایه دور هر بلوک */
+            position: relative;
+            scroll-snap-align: center; /* هر بلوک را در مرکز اسکرول قرار می‌دهد */
+        }
+
+        /* برای حالت دارک مود */
+        .dark-mode .top-nav {
+            background-color: #333;
+        }
+
+        .dark-mode .MindContent {
+            background-color: #333; /* تغییر رنگ بلوک‌ها در حالت دارک مود */
+            color: white;
         }
     </style>
 </head>
-<body class="light-mode">
+<body>
     <div class="top-nav">
         <div class="profile-icon">
             <!-- آیکون دیفالت پروفایل -->
@@ -87,10 +97,21 @@
         </div>
     </div>
     <div class="container">
-        <div class="MindContent"></div>
-        <div class="MindContent"></div>
-        <div class="MindContent"></div>
+        <div class="MindContent">بلاک ۱</div>
+        <div class="MindContent">بلاک ۲</div>
+        <div class="MindContent">بلاک ۳</div>
         <!-- شما می‌توانید به تعداد دلخواه بلوک اضافه کنید -->
     </div>
+
+    <script>
+        // تشخیص حالت دارک یا لایت مود بر اساس تنظیمات پلتفرم
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.add('light-mode');
+        }
+    </script>
 </body>
 </html>
