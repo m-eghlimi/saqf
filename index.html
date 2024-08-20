@@ -54,8 +54,34 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
         .main-content {
-            padding-top: 60px;
-            text-align: center;
+            /* بلوک اصلی به شکل کارت */
+            /* عرض ۱۰۰٪ از والد با فاصله ۳۵ پیکسل از بغل‌های صفحه */
+            width: calc(100% - 70px);
+            
+            /* ارتفاع که یک مستطیل نزدیک به مربع ایجاد کند */
+            height: 50vh; /* این مقدار می‌تواند به دلخواه تنظیم شود */
+
+            /* تنظیم فاصله ۱۰ پیکسل یا ۱۰٪ از ناوبری بالا */
+            margin: 10px auto;
+
+            /* فاصله از بغل‌های صفحه */
+            padding: 20px;
+            margin-top: 10px;
+
+            /* گوشه‌های گرد با اندازه ده پیکسل یا درصد */
+            border-radius: 10px;
+
+            /* زمینه سفید برای بلوک اصلی */
+            background-color: #fff;
+
+            /* حاشیه دور بلوک اصلی */
+            border: 2px solid #ccc;
+
+            /* سایه‌ای دور بلوک اصلی */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            /* موقعیت‌یابی نسبی برای امکان تنظیمات درونی */
+            position: relative;
         }
         .custom-box {
             /* یک مستطیل قرمز رنگ با حاشیه‌های گرد */
@@ -91,7 +117,7 @@
             /* Aligns the card as a block element and centers it on the page */
             display: block;
         }
-        
+
     </style>
 </head>
 <body class="light-mode">
