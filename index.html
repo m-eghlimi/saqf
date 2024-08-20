@@ -38,8 +38,8 @@
         .top-nav .profile-icon {
             cursor: pointer;
             border-radius: 50%;
-            width: 43px;
-            height: 43px;
+            width: 40px;
+            height: 40px;
             transition: background-color 0.3s;
             margin-right: 45px;
             background-color: white;
@@ -59,33 +59,51 @@
         /* ظرف اصلی که همه بلوک‌ها را در خود جای می‌دهد */
         .container {
             display: flex;
-            padding: 10px 20px 20px; /* فاصله بالایی برای بلوک‌ها */
-            justify-content: space-between; /* بلوک‌ها را در مرکز افقی قرار می‌دهد */
-            overflow-x: auto; /* ایجاد امکان اسکرول افقی */
-            scroll-snap-type: x mandatory; /* استفاده از اسکرول اسنپ برای ایستادن بلوک‌ها در مرکز */
-            scroll-behavior: smooth; /* اسکرول نرم */
+            padding: 55px 20px 5px;
+            justify-content: space-between;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
         }
 
         .MindContent {
-            flex: none; /* جلوگیری از تغییر اندازه بلوک */
-            width: 450px; /* تنظیم عرض هر بلوک */
-            height: 200px; /* تنظیم ارتفاع هر بلوک */
-            margin: 70px 5px; /* فاصله بین بلوک‌ها */
-            background-color: #a89999; /* رنگ پس‌زمینه سفید برای هر بلوک */
-            border-radius: 6px; /* گرد کردن گوشه‌های هر بلوک */
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* تنظیم سایه دور هر بلوک */
+            flex: none;
+            width: 90vw; /* تنظیم عرض کارت به 90٪ عرض صفحه */
+            max-width: 450px; /* حداکثر عرض کارت */
+            height: 35vh; /* تنظیم ارتفاع کارت به 50٪ ارتفاع صفحه */
+            margin: 20px 5px;
+            background-color: #a89999;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             position: relative;
-            scroll-snap-align: center; /* هر بلوک را در مرکز اسکرول قرار می‌دهد */
+            scroll-snap-align: center;
+        }
+
+        /* تنظیمات اضافی برای دستگاه‌های مختلف */
+        @media (max-width: 600px) {
+            .MindContent {
+                width: 100vw; /* در دستگاه‌های کوچکتر عرض کارت به 100٪ تنظیم می‌شود */
+                height: 35vh; /* ارتفاع بیشتر برای دستگاه‌های کوچکتر */
+                margin: 0px 5; /* فاصله مناسب‌تر برای دستگاه‌های کوچکتر */
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .MindContent {
+                width: 450px; /* عرض ثابت برای دسکتاپ */
+                height: 250px; /* ارتفاع بیشتر برای دسکتاپ */
+                margin: 70px 5px; /* فاصله بیشتر بین کارت‌ها در دسکتاپ */
+            }
         }
 
         /* برای حالت دارک مود */
         .dark-mode .top-nav {
-            background-color: #333;
+        background-color: #333;
         }
 
         .dark-mode .MindContent {
-            background-color: #333; /* تغییر رنگ بلوک‌ها در حالت دارک مود */
-            color: white;
+        background-color: #333;
+        color: white;
         }
     </style>
 </head>
@@ -97,9 +115,9 @@
         </div>
     </div>
     <div class="container">
-        <div class="MindContent">بلاک ۱</div>
-        <div class="MindContent">بلاک ۲</div>
-        <div class="MindContent">بلاک ۳</div>
+        <div class="MindContent"></div>
+        <div class="MindContent"></div>
+        <div class="MindContent"></div>
         <!-- شما می‌توانید به تعداد دلخواه بلوک اضافه کنید -->
     </div>
 
