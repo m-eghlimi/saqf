@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAQF Web App</title>
-    <!-- اضافه کردن فونت دست نویس -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
@@ -24,7 +22,7 @@
         }
         .top-nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* تغییر جهت چیدمان برای حذف متن سقف */
             align-items: center;
             padding: 10px 20px;
             background-color: #007bff;
@@ -34,29 +32,21 @@
             z-index: 1000;
             top: 0;
         }
-        .top-nav .app-logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-            font-family: 'Amiri', Arial, sans-serif; /* فونت دست نویس */
-            text-align: left; /* انتقال به سمت چپ */
-            margin-left: 10px; /* فاصله از لبه چپ */
-        }
         .top-nav .profile-icon {
             cursor: pointer;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px; /* تنظیم اندازه آیکون پروفایل */
+            height: 50px; /* تنظیم اندازه آیکون پروفایل */
             transition: background-color 0.3s;
-            margin-right: 40px; /* فاصله استاندارد از بغل تصویر */
+            margin-right: 40px; /* فاصله ۴۰ پیکسل از بغل تصویر */
             background-color: white; /* رنگ پس‌زمینه برای نمایش بهتر آیکون */
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .top-nav .profile-icon img {
-            width: 90%;
-            height: 90%;
+            width: 80%; /* اندازه نسبی آیکون داخل دکمه */
+            height: 80%;
             border-radius: 50%;
         }
         .top-nav .profile-icon:hover {
@@ -78,7 +68,7 @@
         }
         .content-card img {
             max-width: 100%;
-            border-radius: 15px;
+            border-radius: 5px;
         }
         .toggle-button {
             margin-top: 20px;
@@ -94,7 +84,6 @@
 </head>
 <body class="light-mode">
     <div class="top-nav">
-        <div class="app-logo">سقف</div> <!-- لوگوی متنی سمت چپ -->
         <div class="profile-icon">
             <!-- آیکون دیفالت پروفایل -->
             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User Profile">
