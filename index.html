@@ -59,7 +59,7 @@
         /* ظرف اصلی که همه بلوک‌ها را در خود جای می‌دهد */
         .container {
             display: flex;
-            padding: 55px 20px 5px;
+            padding: 55px 15px 5px;
             justify-content: space-between;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
@@ -82,17 +82,17 @@
         /* تنظیمات اضافی برای دستگاه‌های مختلف */
         @media (max-width: 600px) {
             .MindContent {
-                width: 100vw; /* در دستگاه‌های کوچکتر عرض کارت به 100٪ تنظیم می‌شود */
+                width: 90vw; /* در دستگاه‌های کوچکتر عرض کارت به 100٪ تنظیم می‌شود */
                 height: 35vh; /* ارتفاع بیشتر برای دستگاه‌های کوچکتر */
-                margin: 20px 5; /* فاصله مناسب‌تر برای دستگاه‌های کوچکتر */
+                margin: 20px 5px; /* فاصله مناسب‌تر برای دستگاه‌های کوچکتر */
             }
         }
 
         @media (min-width: 1025px) {
             .MindContent {
-                width: 450px; /* عرض ثابت برای دسکتاپ */
-                height: 250px; /* ارتفاع بیشتر برای دسکتاپ */
-                margin: 70px 5px; /* فاصله بیشتر بین کارت‌ها در دسکتاپ */
+                width: 550px; /* عرض ثابت برای دسکتاپ */
+                height: 350px; /* ارتفاع بیشتر برای دسکتاپ */
+                margin: 40px 5px; /* فاصله بیشتر بین کارت‌ها در دسکتاپ */
             }
         }
 
@@ -115,9 +115,9 @@
         </div>
     </div>
     <div class="container">
-        <div class="MindContent"></div>
-        <div class="MindContent"></div>
-        <div class="MindContent"></div>
+        <div class="MindContent">...</div>
+        <div class="MindContent">...</div>
+        <div class="MindContent">...</div>
         <!-- شما می‌توانید به تعداد دلخواه بلوک اضافه کنید -->
     </div>
 
