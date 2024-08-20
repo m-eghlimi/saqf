@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAQF Web App</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Vazir', Arial, sans-serif;
             margin: 0;
             padding: 0;
             transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh; /* اطمینان از پر شدن کامل صفحه */
         }
         .light-mode {
             background-color: white;
@@ -19,79 +21,69 @@
             background-color: #121212;
             color: white;
         }
-        .top-nav, .bottom-nav {
+        .top-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
             background-color: #007bff;
             color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
         }
-        .top-nav .menu-icon, .bottom-nav .nav-item {
+        .top-nav .profile-icon {
             cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            transition: background-color 0.3s;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .top-nav .app-logo {
-            font-size: 24px;
-            font-weight: bold;
+        .top-nav .profile-icon img {
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
         }
-        .main-content {
-            padding: 20px;
-            text-align: center;
+        .top-nav .profile-icon:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
-        .hero-section {
-            margin-bottom: 20px;
-        }
-        .content-card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 10px;
-            padding: 10px;
-            text-align: left;
-        }
-        .content-card img {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-        .toggle-button {
-            margin-top: 20px;
+        .top-nav .toggle-button {
+            cursor: pointer;
             padding: 10px 20px;
-            cursor: pointer;
-            border: none;
             background-color: #007bff;
             color: white;
+            border: none;
+            border-radius: 5px;
             font-size: 16px;
+        }
+        .main-content {
+            padding-top: 70px; /* فاصله از ناوبری بالا */
+            text-align: center;
+        }
+        .custom-box {
+            width: calc(100% - 80px); /* عرض باکس با در نظر گرفتن فاصله 40px از هر طرف */
+            height: calc((100% - 80px) / 2); /* طول باکس، نصف عرض */
+            background-color: red;
+            margin: 10px auto 0;
             border-radius: 5px;
         }
     </style>
 </head>
 <body class="light-mode">
     <div class="top-nav">
-        <div class="menu-icon">☰</div>
-        <div class="app-logo">SAQF</div>
-        <div class="quick-access-icons">
-            <span>🔔</span>
-            <span>🔍</span>
-            <span>👤</span>
+        <button class="toggle-button" onclick="toggleMode()">تغییر حالت</button>
+        <div class="profile-icon">
+            <!-- آیکون دیفالت پروفایل -->
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User Profile">
         </div>
     </div>
     <div class="main-content">
-        <div class="hero-section">
-            <h1>سلام، به تلگرام وب خوش آمدید</h1>
-            <p>This is a simple Telegram web app.</p>
-        </div>
-        <div class="content-card">
-            <img src="path/to/image.jpg" alt="Content Image">
-            <h2>Content Title</h2>
-            <p>Brief description or snippet of the content.</p>
-            <button>Read more</button>
-        </div>
-        <button class="toggle-button" onclick="toggleMode()">تغییر حالت</button>
-    </div>
-    <div class="bottom-nav">
-        <div class="nav-item">🏠</div>
-        <div class="nav-item">📂</div>
-        <div class="nav-item">🔍</div>
-        <div class="nav-item">👤</div>
+        <div class="custom-box"></div> <!-- باکس قرمز جدید -->
     </div>
     <script>
         function toggleMode() {
