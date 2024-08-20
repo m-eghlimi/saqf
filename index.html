@@ -22,7 +22,7 @@
         }
         .top-nav {
             display: flex;
-            justify-content: flex-end; 
+            justify-content: flex-end;
             align-items: center;
             padding: 10px 20px;
             background-color: #007bff;
@@ -38,14 +38,14 @@
             width: 50px;
             height: 50px;
             transition: background-color 0.3s;
-            margin-right: 40px; 
-            background-color: white; 
+            margin-right: 40px;
+            background-color: white;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .top-nav .profile-icon img {
-            width: 80%; 
+            width: 80%;
             height: 80%;
             border-radius: 50%;
         }
@@ -58,9 +58,9 @@
         }
         .custom-box {
             width: 50%; /* عرض باکس */
-            height: 25%; /* طول باکس، نصف عرض */
+            height: calc(50% / 2); /* طول باکس، نصف عرض */
             background-color: red;
-            margin: 10px auto; /* فاصله 10 پیکسل از هدر */
+            margin: 10px auto 0; /* فاصله 10 پیکسل از هدر */
             margin-right: 40px; /* فاصله 40 پیکسل از بغل */
             margin-left: 40px; /* فاصله 40 پیکسل از بغل */
             border-radius: 5px;
@@ -77,35 +77,5 @@
     <div class="main-content">
         <div class="custom-box"></div> <!-- باکس قرمز جدید -->
     </div>
-    <script>
-        function toggleMode() {
-            const body = document.body;
-            if (body.classList.contains('light-mode')) {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
-                localStorage.setItem('theme', 'light-mode');
-            }
-        }
-
-        // Load the saved theme from localStorage
-        window.onload = function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.body.classList.remove('light-mode', 'dark-mode');
-                document.body.classList.add(savedTheme);
-            }
-        }
-
-        // Keyboard shortcut for toggling theme
-        document.addEventListener('keydown', function(event) {
-            if (event.ctrlKey && event.key === 'm') {
-                toggleMode();
-            }
-        });
-    </script>
 </body>
 </html>
