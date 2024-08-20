@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAQF Web App</title>
+    <!-- اضافه کردن فونت دست نویس -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
@@ -32,14 +34,13 @@
             z-index: 1000;
             top: 0;
         }
-        .top-nav .menu-icon {
-            cursor: pointer;
-        }
         .top-nav .app-logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             color: white;
-            font-family: 'Vazir', Arial, sans-serif;
+            font-family: 'Amiri', Arial, sans-serif; /* فونت دست نویس */
+            text-align: center;
+            flex-grow: 1;
         }
         .top-nav .profile-icon {
             cursor: pointer;
@@ -47,6 +48,16 @@
             width: 40px;
             height: 40px;
             transition: background-color 0.3s;
+            margin-right: 20px; /* فاصله از بغل */
+            background-color: white; /* رنگ پس‌زمینه برای نمایش بهتر آیکون */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .top-nav .profile-icon img {
+            width: 60%;
+            height: 60%;
+            border-radius: 50%;
         }
         .top-nav .profile-icon:hover {
             background-color: rgba(255, 255, 255, 0.2);
@@ -83,11 +94,10 @@
 </head>
 <body class="light-mode">
     <div class="top-nav">
-        <div class="menu-icon">☰</div>
-        <div class="app-logo">سقف</div>
+        <div class="app-logo">سقف</div> <!-- لوگوی متنی -->
         <div class="profile-icon">
-            <!-- آیکون پروفایل کاربر -->
-            <img src="path/to/profile-pic.png" alt="User Profile" style="width: 100%; height: 100%;">
+            <!-- آیکون دیفالت پروفایل -->
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User Profile">
         </div>
     </div>
     <div class="main-content">
