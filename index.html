@@ -69,12 +69,22 @@
             /* زمینه سفید برای بلوک اصلی */
             background-color: #fff;
             /* حاشیه دور بلوک اصلی */
-            border: 2px solid #ccc;
+            border: 0.5px solid #ccc;
             /* سایه‌ای دور بلوک اصلی */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             /* موقعیت‌یابی نسبی برای امکان تنظیمات درونی */
             position: relative;
         }
+        .main-content img {
+            /* تصویر به اندازه ۱۰۰٪ عرض بلوک اصلی */
+            width: 100%;
+            /* تصویر به اندازه ۱۰۰٪ ارتفاع بلوک اصلی */
+            height: 100%;
+            /* گوشه‌های گرد با اندازه ده پیکسل یا درصد */
+            border-radius: 10px;
+            /* تنظیم موقعیت تصویر درون بلوک اصلی */
+            object-fit: cover;
+        }   
 
     </style>
 </head>
@@ -86,8 +96,8 @@
         </div>
     </div>
     <div class="main-content">
-                <h3>box1</h3>
-            </div>
+        <img src="path/to/IMAGE 2024-08-20 09/27/43.jpg" alt="Description">
+    </div>
     </div>
 </body>
 </html>
