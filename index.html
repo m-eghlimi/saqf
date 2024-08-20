@@ -22,7 +22,7 @@
         }
         .top-nav {
             display: flex;
-            justify-content: flex-end; /* تغییر جهت چیدمان برای حذف متن سقف */
+            justify-content: flex-end; 
             align-items: center;
             padding: 10px 20px;
             background-color: #007bff;
@@ -35,17 +35,17 @@
         .top-nav .profile-icon {
             cursor: pointer;
             border-radius: 50%;
-            width: 50px; /* تنظیم اندازه آیکون پروفایل */
-            height: 50px; /* تنظیم اندازه آیکون پروفایل */
+            width: 50px;
+            height: 50px;
             transition: background-color 0.3s;
-            margin-right: 40px; /* فاصله ۴۰ پیکسل از بغل تصویر */
-            background-color: white; /* رنگ پس‌زمینه برای نمایش بهتر آیکون */
+            margin-right: 40px; 
+            background-color: white; 
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .top-nav .profile-icon img {
-            width: 80%; /* اندازه نسبی آیکون داخل دکمه */
+            width: 80%; 
             height: 80%;
             border-radius: 50%;
         }
@@ -53,31 +53,16 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
         .main-content {
-            padding: 60px 20px;
+            padding-top: 70px; /* فاصله از ناوبری بالا */
             text-align: center;
         }
-        .hero-section {
-            margin-bottom: 20px;
-        }
-        .content-card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 10px;
-            padding: 10px;
-            text-align: left;
-        }
-        .content-card img {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-        .toggle-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            cursor: pointer;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            font-size: 16px;
+        .custom-box {
+            width: 50%; /* عرض باکس */
+            height: 25%; /* طول باکس، نصف عرض */
+            background-color: red;
+            margin: 10px auto; /* فاصله 10 پیکسل از هدر */
+            margin-right: 40px; /* فاصله 40 پیکسل از بغل */
+            margin-left: 40px; /* فاصله 40 پیکسل از بغل */
             border-radius: 5px;
         }
     </style>
@@ -90,17 +75,7 @@
         </div>
     </div>
     <div class="main-content">
-        <div class="hero-section">
-            <h1>سلام، به تلگرام وب خوش آمدید</h1>
-            <p>This is a simple Telegram web app.</p>
-        </div>
-        <div class="content-card">
-            <img src="path/to/image.jpg" alt="Content Image">
-            <h2>Content Title</h2>
-            <p>Brief description or snippet of the content.</p>
-            <button>Read more</button>
-        </div>
-        <button class="toggle-button" onclick="toggleMode()">تغییر حالت</button>
+        <div class="custom-box"></div> <!-- باکس قرمز جدید -->
     </div>
     <script>
         function toggleMode() {
