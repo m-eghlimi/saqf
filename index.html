@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh; /* اطمینان از پر شدن کامل صفحه */
         }
         .light-mode {
             background-color: white;
@@ -57,12 +58,10 @@
             text-align: center;
         }
         .custom-box {
-            width: 50%; /* عرض باکس */
-            height: calc(50% / 2); /* طول باکس، نصف عرض */
+            width: calc(100% - 80px); /* عرض باکس با در نظر گرفتن فاصله 40px از هر طرف */
+            height: calc((100% - 80px) / 2); /* طول باکس، نصف عرض */
             background-color: red;
-            margin: 10px auto 0; /* فاصله 10 پیکسل از هدر */
-            margin-right: 40px; /* فاصله 40 پیکسل از بغل */
-            margin-left: 40px; /* فاصله 40 پیکسل از بغل */
+            margin: 10px auto 0;
             border-radius: 5px;
         }
     </style>
