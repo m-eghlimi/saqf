@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAQF Web App</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" />
     <style>
         body {
             font-family: 'Vazir', sans-serif;
@@ -65,7 +64,7 @@
 
         .container {
             display: flex;
-            padding: 65px 15px 5px;
+            padding: 65px 15px 4px;
             justify-content: space-between;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
@@ -75,9 +74,9 @@
         .MindContent {
             flex: none;
             width: 90vw;
-            max-width: 450px;
+            max-width: 500px;
             height: 35vh;
-            margin: 20px 5px;
+            margin: 15px 4px;
             background-color: #a89999;
             border-radius: 6px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -87,17 +86,17 @@
 
         @media (max-width: 600px) {
             .MindContent {
-                width: 90vw;
+                width: 95vw;
                 height: 35vh;
-                margin: 20px 5px;
+                margin: 15px 4px;
             }
         }
 
         @media (min-width: 1025px) {
             .MindContent {
-                width: 550px;
+                width: 500px;
                 height: 350px;
-                margin: 40px 5px;
+                margin: 20px 10px;
             }
         }
 
@@ -133,6 +132,32 @@
             document.body.classList.add('dark-mode');
         } else {
             document.body.classList.add('light-mode');
+        }
+    </script>
+
+
+    </style>
+    <!-- فراخوانی کتابخانه تلگرام -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    </head>
+    <body>
+    <div class="profile-icon">
+        <img id="telegram-profile" src="default-profile.png" alt="User Profile">
+    </div>
+
+    <script>
+        // بررسی اینکه آیا در محیط تلگرام باز شده است
+        if (window.Telegram.WebApp) {
+            const telegramUser = Telegram.WebApp.initDataUnsafe.user;
+            if (telegramUser && telegramUser.photo_url) {
+                // اگر تصویر پروفایل موجود است، آن را بارگذاری کنید
+                document.getElementById('telegram-profile').src = telegramUser.photo_url;
+            } else {
+                // اگر کاربر پروفایل ندارد یا مشکلی وجود دارد
+                document.getElementById('telegram-profile').src = 'default-profile.png';
+            }
+        } else {
+            console.log('Not in Telegram WebApp environment');
         }
     </script>
 </body>
