@@ -36,7 +36,6 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            cu
             z-index: 1000;
         }
         .profile-icon img {
@@ -113,14 +112,35 @@
             background-color: #333;
             color: white;
         }
+
+        /* سبک برای نمایش نام کاربری */
+        .username-display {
+            font-size: 20px;
+            color: #333;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 70px;
+            right: 15px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
     <div class="app-logo">
         <img src="https://raw.githubusercontent.com/m-eghlimi/saqf/main/path/to/5859574370006057418.jpg" alt="logo">
     </div>
+    
+    <!-- آیکون پیش‌فرض پروفایل رسمی تلگرام -->
     <div class="profile-icon">
-        <img id="telegram-profile" src="https://www.example.com/path/to/default-icon.png" alt="User Profile">
+        <img id="telegram-profile" src="https://telegram.org/img/t_logo.png" alt="User Profile">
+    </div>
+
+    <!-- محلی برای نمایش نام کاربری -->
+    <div id="username" class="username-display">
+        در حال بارگذاری نام کاربری...
     </div>
 
     <div class="container">
@@ -144,13 +164,19 @@
             if (telegramUser && telegramUser.photo_url) {
                 document.getElementById('telegram-profile').src = telegramUser.photo_url;
             } else {
-                document.getElementById('telegram-profile').src = 'https://www.example.com/path/to/default-icon.png';
+                document.getElementById('telegram-profile').src = 'https://telegram.org/img/t_logo.png';
+            }
+
+            if (telegramUser && telegramUser.username) {
+                // تنظیم نام کاربری در div با id "username"
+                document.getElementById('username').textContent = `نام کاربری شما: @${telegramUser.username}`;
+            } else {
+                document.getElementById('username').textContent = 'نام کاربری شما در دسترس نیست';
             }
         } else {
             console.log('Not in Telegram WebApp environment');
+            document.getElementById('username').textContent = 'این اپلیکیشن در تلگرام باز نشده است';
         }
     </script>
-    <!-- فراخوانی کتابخانه تلگرام -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
