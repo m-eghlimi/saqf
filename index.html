@@ -136,7 +136,9 @@
             border-radius: 50%;
             width: 60px;
             height: 60px;
+            object-fit: cover; /* استفاده از cover فقط در پاپ آپ */
             margin-bottom: 10px;
+            cursor: pointer;
         }
         .popup-content h3 {
             margin: 10px 0;
@@ -145,6 +147,11 @@
         .popup-content p {
             font-size: 0.9rem;
             margin: 5px 0;
+        }
+
+        /* مخفی کردن ورودی فایل */
+        #file-input {
+            display: none;
         }
     </style>
 </head>
@@ -164,6 +171,7 @@
             <img id="popup-profile-img" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
             <h3 id="popup-username">User Name</h3>
             <p>moheglimi@gmail.com</p>
+            <input type="file" id="file-input" accept="image/*">
         </div>
     </div>
 
@@ -185,6 +193,7 @@
             const popupProfileImg = document.getElementById('popup-profile-img');
             const usernameDisplay = document.getElementById('username');
             const popupUsername = document.getElementById('popup-username');
+            const fileInput = document.getElementById('file-input');
 
             profileIcon.addEventListener('click', () => {
                 popup.style.display = 'block';
@@ -198,6 +207,22 @@
 
             closeBtn.addEventListener('click', () => {
                 popup.style.display = 'none';
+            });
+
+            popupProfileImg.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        profileImg.src = e.target.result;
+                        popupProfileImg.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
             });
 
             if (window.Telegram.WebApp) {
@@ -216,7 +241,7 @@
                 }
             } else {
                 console.log('Not in Telegram WebApp environment');
-                usernameDisplay.textContent = 'سقف';
+                document.getElementById('username').textContent = 'سقف';
             }
         });
     </script>
