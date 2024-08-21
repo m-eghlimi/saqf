@@ -24,13 +24,11 @@
             background-color: #121212;
             color: white;
         }
-        .profile-icon {
+        .profile-icon, .app-logo {
             position: fixed;
             top: 15px;
-            left: 15px;
             width: 50px;
             height: 50px;
-            background-color: rgb(255, 255, 255);
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -38,34 +36,24 @@
             cursor: pointer;
             z-index: 1000;
         }
-        .profile-icon img {
+        .profile-icon {
+            left: 15px;
+            background-color: rgb(255, 255, 255);
+        }
+        .app-logo {
+            right: 15px;
+            background-color: rgb(0, 0, 0);
+        }
+        .profile-icon img, .app-logo img {
             width: 47px;
             height: 47px;
             border-radius: 50%;
             object-fit: cover;
         }
-
-        .app-logo {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            width: 50px;
-            height: 50px;
-            background-color: rgb(0, 0, 0);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1000;
-        }
         .app-logo img {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
         }
-
         .container {
             display: flex;
             padding: 65px 15px 4px;
@@ -74,7 +62,6 @@
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
         }
-
         .MindContent {
             flex: none;
             width: 90vw;
@@ -87,7 +74,6 @@
             position: relative;
             scroll-snap-align: center;
         }
-
         @media (max-width: 600px) {
             .MindContent {
                 width: 95vw;
@@ -95,7 +81,6 @@
                 margin: 15px 4px;
             }
         }
-
         @media (min-width: 1025px) {
             .MindContent {
                 width: 500px;
@@ -103,21 +88,17 @@
                 margin: 20px 10px;
             }
         }
-
         .dark-mode .top-nav {
             background-color: #333;
         }
-
         .dark-mode .MindContent {
             background-color: #333;
             color: white;
         }
-
-        /* سبک برای نمایش نام کاربری */
         .username-display {
             position: fixed;
             top: 50px;
-            left: 80px;
+            left: 65px;
             font-size: 0.8rem;
             font-weight: bold;
             color: #7459ed;
@@ -129,13 +110,10 @@
     <div class="app-logo">
         <img src="https://raw.githubusercontent.com/m-eghlimi/saqf/main/path/to/5859574370006057418.jpg" alt="logo">
     </div>
-    <!-- آیکون پروفایل معمولی -->
     <div class="profile-icon">
         <img id="telegram-profile" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
     </div>
-    <!-- محلی برای نمایش نام کاربری -->
-    <div id="username" class="username-display">
-    </div>
+    <div id="username" class="username-display"></div>
 
     <div class="container">
         <div class="MindContent"></div>
@@ -144,33 +122,31 @@
     </div>
 
     <script>
-        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.addEventListener('DOMContentLoaded', () => {
+            const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.body.classList.add(isDarkMode ? 'dark-mode' : 'light-mode');
 
-        if (isDarkMode) {
-            document.body.classList.add('dark-mode');
-        } else {
-            document.body.classList.add('light-mode');
-        }
+            if (window.Telegram.WebApp) {
+                const telegramUser = Telegram.WebApp.initDataUnsafe.user;
+                const profileImg = document.getElementById('telegram-profile');
+                const usernameDisplay = document.getElementById('username');
 
-        // بررسی اینکه آیا در محیط تلگرام باز شده است
-        if (window.Telegram.WebApp) {
-            const telegramUser = Telegram.WebApp.initDataUnsafe.user;
-            if (telegramUser && telegramUser.photo_url) {
-                document.getElementById('telegram-profile').src = telegramUser.photo_url;
+                if (telegramUser && telegramUser.photo_url) {
+                    profileImg.src = telegramUser.photo_url;
+                } else {
+                    profileImg.src = 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
+                }
+
+                if (telegramUser && telegramUser.username) {
+                    usernameDisplay.textContent = `@${telegramUser.username}`;
+                } else {
+                    usernameDisplay.textContent = 'سقف';
+                }
             } else {
-                document.getElementById('telegram-profile').src = 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
+                console.log('Not in Telegram WebApp environment');
+                document.getElementById('username').textContent = 'سقف';
             }
-
-        if (telegramUser && telegramUser.username) {
-            // تنظیم نام کاربری در div با id "username"
-            document.getElementById('username').textContent = `@${telegramUser.username}`;
-        } else {
-            document.getElementById('username').textContent = 'سقف';
-        }
-        } else {
-            console.log('Not in Telegram WebApp environment');
-            document.getElementById('username').textContent = 'سقف';
-        }
+        });
     </script>
 </body>
 </html>
