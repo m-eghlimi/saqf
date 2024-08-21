@@ -27,7 +27,7 @@
         .profile-icon {
             position: fixed;
             top: 15px;
-            right: 15px;
+            left: 15px;
             width: 50px;
             height: 50px;
             background-color: rgb(255, 255, 255);
@@ -48,7 +48,7 @@
         .app-logo {
             position: fixed;
             top: 15px;
-            left: 15px;
+            right: 15px;
             width: 50px;
             height: 50px;
             background-color: rgb(0, 0, 0);
@@ -116,14 +116,14 @@
         /* سبک برای نمایش نام کاربری */
         .username-display {
             font-size: 20px;
-            color: #333;
-            background-color: #ffffff;
+            color: #8041df;
+            background: none;
             padding: 10px;
             border-radius: 5px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             position: fixed;
-            top: 70px;
-            right: 15px;
+            top: 15px;
+            left: 70px;
             z-index: 1000;
         }
     </style>
@@ -133,9 +133,9 @@
         <img src="https://raw.githubusercontent.com/m-eghlimi/saqf/main/path/to/5859574370006057418.jpg" alt="logo">
     </div>
     
-    <!-- آیکون پیش‌فرض پروفایل رسمی تلگرام -->
+    <!-- آیکون مینیمال پروفایل -->
     <div class="profile-icon">
-        <img id="telegram-profile" src="https://telegram.org/img/t_logo.png" alt="User Profile">
+        <img id="telegram-profile" src="https://example.com/path/to/minimal-profile-icon.png" alt="User Profile">
     </div>
 
     <!-- محلی برای نمایش نام کاربری -->
@@ -144,9 +144,9 @@
     </div>
 
     <div class="container">
-        <div class="MindContent">...</div>
-        <div class="MindContent">...</div>
-        <div class="MindContent">...</div>
+        <div class="MindContent"></div>
+        <div class="MindContent"></div>
+        <div class="MindContent"></div>
     </div>
 
     <script>
@@ -161,21 +161,16 @@
         // بررسی اینکه آیا در محیط تلگرام باز شده است
         if (window.Telegram.WebApp) {
             const telegramUser = Telegram.WebApp.initDataUnsafe.user;
-            if (telegramUser && telegramUser.photo_url) {
-                document.getElementById('telegram-profile').src = telegramUser.photo_url;
-            } else {
-                document.getElementById('telegram-profile').src = 'https://telegram.org/img/t_logo.png';
-            }
 
             if (telegramUser && telegramUser.username) {
                 // تنظیم نام کاربری در div با id "username"
-                document.getElementById('username').textContent = `نام کاربری شما: @${telegramUser.username}`;
+                document.getElementById('username').textContent = `@${telegramUser.username}`;
             } else {
-                document.getElementById('username').textContent = 'نام کاربری شما در دسترس نیست';
+                document.getElementById('username').textContent = 'سقف';
             }
         } else {
             console.log('Not in Telegram WebApp environment');
-            document.getElementById('username').textContent = 'این اپلیکیشن در تلگرام باز نشده است';
+            document.getElementById('username').textContent = 'سقف';
         }
     </script>
 </body>
