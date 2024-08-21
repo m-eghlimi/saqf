@@ -10,7 +10,7 @@
             font-family: 'Vazir', sans-serif;
             margin: 0;
             padding: 0;
-            min-height: 100vh; /* اطمینان از پر شدن کامل صفحه */
+            min-height: 100vh;
         }
         .light-mode {
             background-color: white;
@@ -57,13 +57,12 @@
             z-index: 1000;
         }
         .app-logo img {
-            width: 47px;
-            height: 47px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             object-fit: cover;
         }
 
-        /* ظرف اصلی که همه بلوک‌ها را در خود جای می‌دهد */
         .container {
             display: flex;
             padding: 65px 15px 5px;
@@ -75,9 +74,9 @@
 
         .MindContent {
             flex: none;
-            width: 90vw; /* تنظیم عرض کارت به 90٪ عرض صفحه */
-            max-width: 450px; /* حداکثر عرض کارت */
-            height: 35vh; /* تنظیم ارتفاع کارت به 50٪ ارتفاع صفحه */
+            width: 90vw;
+            max-width: 450px;
+            height: 35vh;
             margin: 20px 5px;
             background-color: #a89999;
             border-radius: 6px;
@@ -86,52 +85,48 @@
             scroll-snap-align: center;
         }
 
-        /* تنظیمات اضافی برای دستگاه‌های مختلف */
         @media (max-width: 600px) {
             .MindContent {
-                width: 90vw; /* در دستگاه‌های کوچکتر عرض کارت به 100٪ تنظیم می‌شود */
-                height: 35vh; /* ارتفاع بیشتر برای دستگاه‌های کوچکتر */
-                margin: 20px 5px; /* فاصله مناسب‌تر برای دستگاه‌های کوچکتر */
+                width: 90vw;
+                height: 35vh;
+                margin: 20px 5px;
             }
         }
 
         @media (min-width: 1025px) {
             .MindContent {
-                width: 550px; /* عرض ثابت برای دسکتاپ */
-                height: 350px; /* ارتفاع بیشتر برای دسکتاپ */
-                margin: 40px 5px; /* فاصله بیشتر بین کارت‌ها در دسکتاپ */
+                width: 550px;
+                height: 350px;
+                margin: 40px 5px;
             }
         }
 
-        /* برای حالت دارک مود */
         .dark-mode .top-nav {
-        background-color: #333;
+            background-color: #333;
         }
 
         .dark-mode .MindContent {
-        background-color: #333;
-        color: white;
+            background-color: #333;
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="app-logo">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User Profile">
+        <img src="https://raw.githubusercontent.com/m-eghlimi/saqf/main/path/to/5859574370006057418.jpg" alt="logo">
     </div>
     <div class="profile-icon">
-        <!-- آیکون دیفالت پروفایل -->
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User Profile">
+        <!-- تصویر پروفایل تلگرام که توسط سمت سرور ارسال می‌شود -->
+        <img src="PATH_TO_USER_PROFILE_PHOTO" alt="User Profile">
     </div>
 
     <div class="container">
         <div class="MindContent">...</div>
         <div class="MindContent">...</div>
         <div class="MindContent">...</div>
-        <!-- شما می‌توانید به تعداد دلخواه بلوک اضافه کنید -->
     </div>
 
     <script>
-        // تشخیص حالت دارک یا لایت مود بر اساس تنظیمات پلتفرم
         const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
         if (isDarkMode) {
