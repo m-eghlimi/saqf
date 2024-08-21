@@ -26,7 +26,7 @@
         }
         .profile-icon, .app-logo {
             position: fixed;
-            top: 15px;
+            top: 20px;
             width: 35px;
             height: 35px;
             border-radius: 50%;
@@ -104,6 +104,52 @@
             color: #7459ed;
             z-index: 1000;
         }
+        /* استایل پاپ آپ */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background-color: #222;
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1100;
+            padding: 20px;
+        }
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .popup-content {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .popup-content img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        .popup-content h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+        .popup-content p {
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -113,7 +159,17 @@
     <div class="profile-icon">
         <img id="telegram-profile" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
     </div>
-    <div id="username" class="username-display"></div>
+    <div id="username" class="username-display">Username Text</div>
+
+    <!-- ساختار پاپ آپ -->
+    <div id="profile-popup" class="popup">
+        <button class="close-btn">&times;</button>
+        <div class="popup-content">
+            <img id="popup-profile-img" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
+            <h3 id="popup-username">User Name</h3>
+            <p>moheglimi@gmail.com</p>
+        </div>
+    </div>
 
     <div class="container">
         <div class="MindContent"></div>
@@ -126,10 +182,30 @@
             const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.body.classList.add(isDarkMode ? 'dark-mode' : 'light-mode');
 
+            const profileIcon = document.querySelector('.profile-icon');
+            const popup = document.getElementById('profile-popup');
+            const closeBtn = popup.querySelector('.close-btn');
+            const profileImg = document.getElementById('telegram-profile');
+            const popupProfileImg = document.getElementById('popup-profile-img');
+            const usernameDisplay = document.getElementById('username');
+            const popupUsername = document.getElementById('popup-username');
+
+            profileIcon.addEventListener('click', () => {
+                popup.style.display = 'block';
+                if (profileImg.src) {
+                    popupProfileImg.src = profileImg.src;
+                }
+                if (usernameDisplay.textContent) {
+                    popupUsername.textContent = usernameDisplay.textContent;
+                }
+            });
+
+            closeBtn.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
+
             if (window.Telegram.WebApp) {
                 const telegramUser = Telegram.WebApp.initDataUnsafe.user;
-                const profileImg = document.getElementById('telegram-profile');
-                const usernameDisplay = document.getElementById('username');
 
                 if (telegramUser && telegramUser.photo_url) {
                     profileImg.src = telegramUser.photo_url;
