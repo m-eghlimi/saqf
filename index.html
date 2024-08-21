@@ -116,7 +116,7 @@
     </div>
     <div class="profile-icon">
         <!-- تصویر پروفایل تلگرام که توسط سمت سرور ارسال می‌شود -->
-        <img src="PATH_TO_USER_PROFILE_PHOTO" alt="User Profile">
+        <img id="telegram-profile" src="default-profile.png" alt="User Profile">
     </div>
 
     <div class="container">
@@ -133,19 +133,7 @@
         } else {
             document.body.classList.add('light-mode');
         }
-    </script>
 
-
-    </style>
-    <!-- فراخوانی کتابخانه تلگرام -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    </head>
-    <body>
-    <div class="profile-icon">
-        <img id="telegram-profile" src="default-profile.png" alt="User Profile">
-    </div>
-
-    <script>
         // بررسی اینکه آیا در محیط تلگرام باز شده است
         if (window.Telegram.WebApp) {
             const telegramUser = Telegram.WebApp.initDataUnsafe.user;
@@ -160,5 +148,8 @@
             console.log('Not in Telegram WebApp environment');
         }
     </script>
+
+    <!-- فراخوانی کتابخانه تلگرام -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
