@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAQF Web App</title>
 
-    <!-- لینک به فایل CSS -->
-    <link rel="stylesheet" href="styles.css">
-
     <!-- فراخوانی کتابخانه تلگرام -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- لینک به فایل CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="app-logo">
@@ -20,24 +20,15 @@
     </div>
     <div id="username" class="username-display">Username Text</div>
 
-    <!-- ساختار پاپ‌آپ اصلی -->
-    <div id="main-popup" class="popup" style="display: none;">
-        <div class="popup-header">سقف</div>
-        <div class="profile-section">
-            <img id="profile-image" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
-            <div class="profile-details">
-                <h3>محمد اغلانی</h3>
-                <p>moheglimi@gmail.com</p>
-            </div>
+    <!-- ساختار پاپ آپ -->
+    <div id="profile-popup" class="popup">
+        <button class="close-btn">&times;</button>
+        <div class="popup-content">
+            <img id="popup-profile-img" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
+            <h3 id="popup-username">User Name</h3>
+            <p>moheglimi@gmail.com</p>
+            <input type="file" id="file-input" accept="image/*">
         </div>
-        <button class="edit-profile-btn" onclick="openEditPopup()">ویرایش پروفایل</button>
-    </div>
-
-    <!-- ساختار پاپ‌آپ ویرایش -->
-    <div id="edit-popup" class="popup">
-        <div class="popup-header">ویرایش پروفایل</div>
-        <!-- این بخش می‌تواند در آینده با ورودی‌های ویرایش تکمیل شود -->
-        <button class="confirm-btn" onclick="confirmEdit()">تأیید</button>
     </div>
 
     <div class="container">
@@ -46,71 +37,7 @@
         <div class="MindContent"></div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            document.body.classList.add(isDarkMode ? 'dark-mode' : 'light-mode');
-
-            const profileIcon = document.querySelector('.profile-icon');
-            const popup = document.getElementById('main-popup');
-            const editPopup = document.getElementById('edit-popup');
-            const profileImg = document.getElementById('telegram-profile');
-            const popupProfileImg = document.getElementById('profile-image');
-            const usernameDisplay = document.getElementById('username');
-            const popupUsername = document.getElementById('popup-username');
-            const fileInput = document.getElementById('file-input');
-
-            profileIcon.addEventListener('click', () => {
-                popup.style.display = 'block';
-                if (profileImg.src) {
-                    popupProfileImg.src = profileImg.src;
-                }
-                if (usernameDisplay.textContent) {
-                    popupUsername.textContent = usernameDisplay.textContent;
-                }
-            });
-
-            function openEditPopup() {
-                popup.style.display = 'none';
-                editPopup.style.display = 'block';
-            }
-
-            function confirmEdit() {
-                editPopup.style.display = 'none';
-                popup.style.display = 'block';
-            }
-
-            fileInput.addEventListener('change', (event) => {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        profileImg.src = e.target.result;
-                        popupProfileImg.src = e.target.result;
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-
-            if (window.Telegram.WebApp) {
-                const telegramUser = Telegram.WebApp.initDataUnsafe.user;
-
-                if (telegramUser && telegramUser.photo_url) {
-                    profileImg.src = telegramUser.photo_url;
-                } else {
-                    profileImg.src = 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
-                }
-
-                if (telegramUser && telegramUser.username) {
-                    usernameDisplay.textContent = `@${telegramUser.username}`;
-                } else {
-                    usernameDisplay.textContent = 'سقف';
-                }
-            } else {
-                console.log('Not in Telegram WebApp environment');
-                document.getElementById('username').textContent = 'سقف';
-            }
-        });
-    </script>
+    <!-- لینک به فایل JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
