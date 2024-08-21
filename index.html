@@ -1,159 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAQF Web App</title>
 
+    <!-- لینک به فایل CSS -->
+    <link rel="stylesheet" href="styles.css">
+
     <!-- فراخوانی کتابخانه تلگرام -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    <!-- استایل‌های CSS -->
-    <style>
-        body {
-            font-family: 'Vazir', sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-        .light-mode {
-            background-color: white;
-            color: black;
-        }
-        .dark-mode {
-            background-color: #121212;
-            color: white;
-        }
-        .profile-icon, .app-logo {
-            position: fixed;
-            top: 20px;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        .profile-icon {
-            left: 20px;
-            background-color: rgb(255, 255, 255);
-        }
-        .app-logo {
-            right: 20px;
-            background-color: rgb(0, 0, 0);
-        }
-        .profile-icon img, .app-logo img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .container {
-            display: flex;
-            padding: 65px 20px 5px;
-            justify-content: space-between;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-        }
-        .MindContent {
-            flex: none;
-            width: 90vw;
-            max-width: 450px;
-            height: 30vh;
-            margin: 15px 5px;
-            background-color: #a89999;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            position: relative;
-            scroll-snap-align: center;
-        }
-        @media (max-width: 600px) {
-            .MindContent {
-                width: 90vw;
-                height: 30vh;
-                margin: 15px 5px;
-            }
-        }
-        @media (min-width: 1025px) {
-            .MindContent {
-                width: 500px;
-                height: 350px;
-                margin: 20px 10px;
-            }
-        }
-        .dark-mode .top-nav {
-            background-color: #333;
-        }
-        .dark-mode .MindContent {
-            background-color: #333;
-            color: white;
-        }
-        .username-display {
-            position: fixed;
-            top: 50px;
-            left: 65px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #7459ed;
-            z-index: 1000;
-        }
-        /* استایل پاپ آپ */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 400px;
-            background-color: #222;
-            color: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1100;
-            padding: 20px;
-        }
-        .popup .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            font-size: 20px;
-            color: white;
-            cursor: pointer;
-        }
-        .popup-content {
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .popup-content img {
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            object-fit: cover; /* استفاده از cover فقط در پاپ آپ */
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-        .popup-content h3 {
-            margin: 10px 0;
-            font-size: 1.2rem;
-        }
-        .popup-content p {
-            font-size: 0.9rem;
-            margin: 5px 0;
-        }
-
-        /* مخفی کردن ورودی فایل */
-        #file-input {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <div class="app-logo">
@@ -164,15 +20,24 @@
     </div>
     <div id="username" class="username-display">Username Text</div>
 
-    <!-- ساختار پاپ آپ -->
-    <div id="profile-popup" class="popup">
-        <button class="close-btn">&times;</button>
-        <div class="popup-content">
-            <img id="popup-profile-img" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
-            <h3 id="popup-username">User Name</h3>
-            <p>moheglimi@gmail.com</p>
-            <input type="file" id="file-input" accept="image/*">
+    <!-- ساختار پاپ‌آپ اصلی -->
+    <div id="main-popup" class="popup" style="display: none;">
+        <div class="popup-header">سقف</div>
+        <div class="profile-section">
+            <img id="profile-image" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
+            <div class="profile-details">
+                <h3>محمد اغلانی</h3>
+                <p>moheglimi@gmail.com</p>
+            </div>
         </div>
+        <button class="edit-profile-btn" onclick="openEditPopup()">ویرایش پروفایل</button>
+    </div>
+
+    <!-- ساختار پاپ‌آپ ویرایش -->
+    <div id="edit-popup" class="popup">
+        <div class="popup-header">ویرایش پروفایل</div>
+        <!-- این بخش می‌تواند در آینده با ورودی‌های ویرایش تکمیل شود -->
+        <button class="confirm-btn" onclick="confirmEdit()">تأیید</button>
     </div>
 
     <div class="container">
@@ -187,10 +52,10 @@
             document.body.classList.add(isDarkMode ? 'dark-mode' : 'light-mode');
 
             const profileIcon = document.querySelector('.profile-icon');
-            const popup = document.getElementById('profile-popup');
-            const closeBtn = popup.querySelector('.close-btn');
+            const popup = document.getElementById('main-popup');
+            const editPopup = document.getElementById('edit-popup');
             const profileImg = document.getElementById('telegram-profile');
-            const popupProfileImg = document.getElementById('popup-profile-img');
+            const popupProfileImg = document.getElementById('profile-image');
             const usernameDisplay = document.getElementById('username');
             const popupUsername = document.getElementById('popup-username');
             const fileInput = document.getElementById('file-input');
@@ -205,13 +70,15 @@
                 }
             });
 
-            closeBtn.addEventListener('click', () => {
+            function openEditPopup() {
                 popup.style.display = 'none';
-            });
+                editPopup.style.display = 'block';
+            }
 
-            popupProfileImg.addEventListener('click', () => {
-                fileInput.click();
-            });
+            function confirmEdit() {
+                editPopup.style.display = 'none';
+                popup.style.display = 'block';
+            }
 
             fileInput.addEventListener('change', (event) => {
                 const file = event.target.files[0];
