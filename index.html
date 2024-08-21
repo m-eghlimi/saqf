@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAQF Web App</title>
+
+    <!-- فراخوانی کتابخانه تلگرام -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- استایل‌های CSS -->
     <style>
         body {
             font-family: 'Vazir', sans-serif;
@@ -115,8 +120,7 @@
         <img src="https://raw.githubusercontent.com/m-eghlimi/saqf/main/path/to/5859574370006057418.jpg" alt="logo">
     </div>
     <div class="profile-icon">
-        <!-- تصویر پروفایل تلگرام که توسط سمت سرور ارسال می‌شود -->
-        <img id="telegram-profile" src="default-profile.png" alt="User Profile">
+        <img id="telegram-profile" src="https://www.example.com/path/to/default-icon.png" alt="User Profile">
     </div>
 
     <div class="container">
@@ -138,17 +142,14 @@
         if (window.Telegram.WebApp) {
             const telegramUser = Telegram.WebApp.initDataUnsafe.user;
             if (telegramUser && telegramUser.photo_url) {
-                // اگر تصویر پروفایل موجود است، آن را بارگذاری کنید
                 document.getElementById('telegram-profile').src = telegramUser.photo_url;
             } else {
-                // اگر کاربر پروفایل ندارد یا مشکلی وجود دارد
-                document.getElementById('telegram-profile').src = 'default-profile.png';
+                document.getElementById('telegram-profile').src = 'https://www.example.com/path/to/default-icon.png';
             }
         } else {
             console.log('Not in Telegram WebApp environment');
         }
     </script>
-
     <!-- فراخوانی کتابخانه تلگرام -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
