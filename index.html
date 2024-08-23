@@ -1,45 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAQF Web App</title>
-
-    <!-- لینک به فایل CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
-    <!-- فراخوانی کتابخانه تلگرام -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <div class="container-box">
-        <div class="app-logo">
-            <img src="https://raw.githubusercontent.com/m-eghlimi/saqf/main/photos/photo_2024-08-23%2004.04.54.jpeg" alt="logo">
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/m-eghlimi/saqf/main/photos/photo_2024-08-23%2004.04.54.jpeg" alt="SAQF">
+            </div>
+            <div class="header-icons">
+                <button class="add-icon material-icons">add</button>
+                <button class="profile-icon material-icons">person</button>
+            </div>
         </div>
-        <div class="profile-icon">
-            <img id="telegram-profile" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
-        </div>
-        <div id="username" class="username-display">Username Text</div>
-    </div>
+    </header>
 
-    <!-- ساختار پاپ آپ -->
-    <div id="profile-popup" class="popup">
-        <button class="close-btn">&times;</button>
-        <div class="popup-content">
-            <img id="popup-profile-img" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
-            <h3 id="popup-username">User Name</h3>
-            <p>moheglimi@gmail.com</p>
-            <input type="file" id="file-input" accept="image/*">
-        </div>
-    </div>
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <!-- Balance Info Section -->
+        <section class="balance-info">
+            <p>Dijital hesabının bakiyesini görmek için giriş yap.</p>
+            <a href="#" class="balance-link">ورود به حساب کاربری</a>
+        </section>
 
-    <div class="container">
-        <div class="MindContent"></div>
-        <div class="MindContent"></div>
-        <div class="MindContent"></div>
-    </div>
+        <!-- Action Buttons -->
+        <section class="actions">
+            <button class="action-button material-icons">swap_horiz</button>
+            <button class="action-button material-icons">attach_money</button>
+            <button class="action-button material-icons">schedule</button>
+        </section>
 
-    <!-- لینک به فایل JavaScript -->
-    <script src="script.js"></script>
+        <!-- Account Verification Section -->
+        <section class="account-verification">
+            <p>Hesabını onayla</p>
+            <p>Ücretsiz para transferi yapmak için hemen hesabını onayla!</p>
+            <a href="#" class="verification-link">Onayla</a>
+        </section>
+
+        <!-- Tabs Section -->
+        <section class="tabs">
+            <button class="tab active">همه</button>
+            <button class="tab">بازارچه</button>
+            <button class="tab">همخونه</button>
+        </section>
+
+        <!-- Horizontal Scroll Cards Section -->
+        <section class="scroll-cards">
+            <div class="card">
+                <img src="card_image1.jpg" alt="گهی ۱">
+                <p>اگهی های کاربر شماره دو و تست</p>
+            </div>
+            <div class="card">
+                <img src="card_image2.jpg" alt="آگهی ۲">
+                <p>اگهی های کاربر شماره دو و تست</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <nav class="footer-nav">
+            <a href="#" class="nav-item active">
+                <span class="nav-icon material-icons">sports_esports</span>
+                <span class="nav-text">جدید</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon material-icons">apps</span>
+                <span class="nav-text">منو</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon material-icons">search</span>
+                <span class="nav-text">بازارچه</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon material-icons">menu_book</span>
+                <span class="nav-text">دفترچه راهنا</span>
+            </a>
+        </nav>
+    </footer>
 </body>
 </html>

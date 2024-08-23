@@ -1,62 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.body.classList.add(isDarkMode ? 'dark-mode' : 'light-mode');
+document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('.tab');
+    const cards = document.querySelectorAll('.card');
 
-    const profileIcon = document.querySelector('.profile-icon');
-    const popup = document.getElementById('profile-popup');
-    const closeBtn = popup.querySelector('.close-btn');
-    const profileImg = document.getElementById('telegram-profile');
-    const popupProfileImg = document.getElementById('popup-profile-img');
-    const usernameDisplay = document.getElementById('username');
-    const popupUsername = document.getElementById('popup-username');
-    const fileInput = document.getElementById('file-input');
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', function () {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            tab.classList.add('active');
 
-    profileIcon.addEventListener('click', () => {
-        popup.style.display = 'block';
-        if (profileImg.src) {
-            popupProfileImg.src = profileImg.src;
-        }
-        if (usernameDisplay.textContent) {
-            popupUsername.textContent = usernameDisplay.textContent;
-        }
+            // Filtering cards based on the selected tab
+            cards.forEach(card => {
+                if (index === 0) {
+                    card.style.display = 'block';
+                } else if (index === 1) {
+                    card.style.display = card.querySelector('p').textContent.includes('Paribu') ? 'block' : 'none';
+                } else if (index === 2) {
+                    card.style.display = card.querySelector('p').textContent.includes('Kitapçısı') ? 'block' : 'none';
+                }
+            });
+        });
     });
-
-    closeBtn.addEventListener('click', () => {
-        popup.style.display = 'none';
-    });
-
-    popupProfileImg.addEventListener('click', () => {
-        fileInput.click();
-    });
-
-    fileInput.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                profileImg.src = e.target.result;
-                popupProfileImg.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    if (window.Telegram.WebApp) {
-        const telegramUser = Telegram.WebApp.initDataUnsafe.user;
-
-        if (telegramUser && telegramUser.photo_url) {
-            profileImg.src = telegramUser.photo_url;
-        } else {
-            profileImg.src = 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
-        }
-
-        if (telegramUser && telegramUser.username) {
-            usernameDisplay.textContent = `@${telegramUser.username}`;
-        } else {
-            usernameDisplay.textContent = 'سقف';
-        }
-    } else {
-        console.log('Not in Telegram WebApp environment');
-        document.getElementById('username').textContent = 'سقف';
-    }
 });

@@ -1,138 +1,193 @@
-/* استایل والد برای قرار دادن تمام اجزا در یک باکس منظم */
-.container-box {
-    position: relative;
-    padding: 20px;
-    background-color: transparent;
-    /* پس‌زمینه باکس حذف شد */
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
     display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: transparent;
+    padding: 15px 0px 10px 15px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    color: white;
 }
 
-/* استایل عمومی برای آیکون‌های پروفایل و لوگو اپ */
-.app-logo, .profile-icon {
-    width: 35px;
-    height: 35px;
-}
-
-/* استایل برای تصاویر داخل آیکون‌ها */
-.app-logo img, .profile-icon img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* استایل برای نمایش نام کاربری */
-.username-display {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #7459ed;
-    margin-left: 10px;
-    /* فاصله بین پروفایل آیکون و نام کاربری */
-}
-
-.container {
+.header-content {
     display: flex;
-    padding: 65px 20px 5px;
     justify-content: space-between;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    align-items: center;
+    width: 100%;
 }
 
-.MindContent {
-    flex: none;
-    width: 90vw;
-    max-width: 450px;
-    height: 30vh;
-    margin: 15px 5px;
-    background-color: #a89999;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    position: relative;
-    scroll-snap-align: center;
+.logo img {
+    width: 50px;
+    border-radius: 50%;
 }
 
-@media (max-width: 600px) {
-    .MindContent {
-        width: 90vw;
-        height: 30vh;
-        margin: 15px 5px;
-    }
+.header-icons {
+    display: flex;
+    gap: 0px; /* Adjust the gap between icons as needed */
 }
 
-@media (min-width: 1025px) {
-    .MindContent {
-        width: 500px;
-        height: 350px;
-        margin: 20px 10px;
-    }
-}
-
-.dark-mode .MindContent {
-    background-color: #333;
-    color: white;
-}
-
-/* استایل پاپ آپ */
-.popup {
-    display: none;
-    position: fixed;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 400px;
-    background-color: #222;
-    color: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1100;
-    padding: 20px;
-}
-
-.popup .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: transparent;
+.header-icons button {
+    padding: 0px 25px 0px 0px;
+    background: none;
     border: none;
-    font-size: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
     cursor: pointer;
 }
 
-.popup-content {
-    margin-top: 40px;
+.main-content {
+    padding: 20px;
+    flex-grow: 2;
+}
+
+.balance-info {
+    background-color: #004aad;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.balance-info p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.balance-link {
+    color: white;
+    text-decoration: underline;
+    display: block;
+    margin-top: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.action-button {
+    background-color: #0066cc;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    flex: 1;
+    margin-right: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.action-button:last-child {
+    margin-right: 0;
+}
+
+.account-verification {
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.verification-link {
+    color: #004aad;
+    text-decoration: underline;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #004aad;
+    color: white;
+}
+
+.tab:last-child {
+    margin-right: 0;
+}
+
+.scroll-cards {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 15px;
+    flex: 0 0 auto;
+    width: 250px;
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #222;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.nav-item {
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.popup-content img {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    margin-bottom: 10px;
-    cursor: pointer;
+.nav-item .nav-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
 }
 
-.popup-content h3 {
-    margin: 10px 0;
-    font-size: 1.2rem;
-}
-
-.popup-content p {
-    font-size: 0.9rem;
-    margin: 5px 0;
-}
-
-/* مخفی کردن ورودی فایل */
-#file-input {
-    display: none;
+.nav-item.active {
+    color: #00bfff;
 }
