@@ -1,0 +1,138 @@
+/* استایل والد برای قرار دادن تمام اجزا در یک باکس منظم */
+.container-box {
+    position: relative;
+    padding: 20px;
+    background-color: transparent;
+    /* پس‌زمینه باکس حذف شد */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* استایل عمومی برای آیکون‌های پروفایل و لوگو اپ */
+.app-logo, .profile-icon {
+    width: 35px;
+    height: 35px;
+}
+
+/* استایل برای تصاویر داخل آیکون‌ها */
+.app-logo img, .profile-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* استایل برای نمایش نام کاربری */
+.username-display {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #7459ed;
+    margin-left: 10px;
+    /* فاصله بین پروفایل آیکون و نام کاربری */
+}
+
+.container {
+    display: flex;
+    padding: 65px 20px 5px;
+    justify-content: space-between;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.MindContent {
+    flex: none;
+    width: 90vw;
+    max-width: 450px;
+    height: 30vh;
+    margin: 15px 5px;
+    background-color: #a89999;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    scroll-snap-align: center;
+}
+
+@media (max-width: 600px) {
+    .MindContent {
+        width: 90vw;
+        height: 30vh;
+        margin: 15px 5px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .MindContent {
+        width: 500px;
+        height: 350px;
+        margin: 20px 10px;
+    }
+}
+
+.dark-mode .MindContent {
+    background-color: #333;
+    color: white;
+}
+
+/* استایل پاپ آپ */
+.popup {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: #222;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1100;
+    padding: 20px;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.popup-content {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-content img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.popup-content h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.popup-content p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* مخفی کردن ورودی فایل */
+#file-input {
+    display: none;
+}
