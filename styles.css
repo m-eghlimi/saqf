@@ -1,0 +1,47 @@
+/* تنظیمات پایه */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* هدر */
+header {
+    background-color: #0088cc;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* بخش اصلی */
+main {
+    display: flex;
+    height: calc(100vh - 100px);
+}
+
+/* لیست چت‌ها */
+#chat-list {
+    width: 25%;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+/* پنجره چت */
+#chat-window {
+    width: 75%;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+/* فوتر */
+footer {
+    background-color: #0088cc;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
