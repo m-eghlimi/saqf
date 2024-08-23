@@ -1,43 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAQF Web App</title>
+document.addEventListener('DOMContentLoaded', () => {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.body.classList.add(isDarkMode ? 'dark-mode' : 'light-mode');
 
-    <!-- فراخوانی کتابخانه تلگرام -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    const profileIcon = document.querySelector('.profile-icon');
+    const popup = document.getElementById('profile-popup');
+    const closeBtn = popup.querySelector('.close-btn');
+    const profileImg = document.getElementById('telegram-profile');
+    const popupProfileImg = document.getElementById('popup-profile-img');
+    const usernameDisplay = document.getElementById('username');
+    const popupUsername = document.getElementById('popup-username');
+    const fileInput = document.getElementById('file-input');
 
-    <!-- لینک به فایل CSS -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="app-logo">
-        <img src="https://raw.githubusercontent.com/m-eghlimi/saqf/main/path/to/5859574370006057418.jpg" alt="logo">
-    </div>
-    <div class="profile-icon">
-        <img id="telegram-profile" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
-    </div>
-    <div id="username" class="username-display">Username Text</div>
+    profileIcon.addEventListener('click', () => {
+        popup.style.display = 'block';
+        if (profileImg.src) {
+            popupProfileImg.src = profileImg.src;
+        }
+        if (usernameDisplay.textContent) {
+            popupUsername.textContent = usernameDisplay.textContent;
+        }
+    });
 
-    <!-- ساختار پاپ آپ -->
-    <div id="profile-popup" class="popup">
-        <button class="close-btn">&times;</button>
-        <div class="popup-content">
-            <img id="popup-profile-img" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Profile">
-            <h3 id="popup-username">User Name</h3>
-            <p>moheglimi@gmail.com</p>
-            <input type="file" id="file-input" accept="image/*">
-        </div>
-    </div>
+    closeBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
 
-    <div class="container">
-        <div class="MindContent"></div>
-        <div class="MindContent"></div>
-        <div class="MindContent"></div>
-    </div>
+    popupProfileImg.addEventListener('click', () => {
+        fileInput.click();
+    });
 
-    <!-- لینک به فایل JavaScript -->
-    <script src="script.js"></script>
-</body>
-</html>
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                profileImg.src = e.target.result;
+                popupProfileImg.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    if (window.Telegram.WebApp) {
+        const telegramUser = Telegram.WebApp.initDataUnsafe.user;
+
+        if (telegramUser && telegramUser.photo_url) {
+            profileImg.src = telegramUser.photo_url;
+        } else {
+            profileImg.src = 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
+        }
+
+        if (telegramUser && telegramUser.username) {
+            usernameDisplay.textContent = `@${telegramUser.username}`;
+        } else {
+            usernameDisplay.textContent = 'سقف';
+        }
+    } else {
+        console.log('Not in Telegram WebApp environment');
+        document.getElementById('username').textContent = 'سقف';
+    }
+});
