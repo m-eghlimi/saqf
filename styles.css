@@ -14,22 +14,20 @@ body {
 /* تنظیمات هدر */
 .header {
     display: flex;
-    width: 95%;
-    background-color: #ffffff;
+    width: 100%;
+    background-color: #928c8c;
     color: white;
-    margin: 10px 10px;
-    border-radius: 15px;
-    box-shadow: 1px 1px rgb(0 0 0 / 20%);
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 1px rgba(87, 82, 82, 0.2);
     z-index: 1000;
-    align-items: center;
-    padding: 10px;
     
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
 }
 
 .logo img {
@@ -190,7 +188,7 @@ body {
     text-align: center;
     border-radius: 10px;
     position: fixed;
-    bottom: 25px;
+    bottom: 20px;
     left: 15px;
     right: 15px;
     z-index: 1000;
