@@ -1,220 +1,83 @@
-/* تنظیمات عمومی */
 body {
-    font-family: 'Vazir', sans-serif;
-    max-width: 100vh;
-    min-height: 100vh;
-    position: fixed;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
+    direction: rtl;
+    text-align: right;
 }
 
-/* تنظیمات هدر */
-.header {
-    display: flex;
-    width: 100%;
-    background-color: #928c8c;
+header {
+    background-color: #6200ea;
     color: white;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 1px rgba(87, 82, 82, 0.2);
-    z-index: 1000;
-    
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    gap: 0px;
-}
-
-.logo img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-}
-
-.header-icons {
-    display: flex;
-    gap: 10px;
-    margin-left: auto;
-    align-items: center;
-}
-
-.header-icons i {
-    background: wheat;
-    font-size: 20px;
-    border-radius: 50px;
-    color: #333;
-    cursor: pointer;
-}
-
-/* تنظیمات محتوای اصلی */
-.main-content {
-    padding: 20px;
-    flex-grow: 1;
-    overflow-y: auto;
-}
-
-/* تنظیمات بخش اطلاعات حساب */
-.balance-info {
-    background-color: #004aad;
-    padding: 50px;
-    border-radius: 10px;
-    color: white;
-    margin-bottom: 50px;
-}
-
-.balance-info p {
-    margin: 20px 20px;
-    font-size: 50px;
-}
-
-.balance-link {
-    color: white;
-    text-decoration: underline;
-    display: block;
-    margin-top: 10px;
-}
-
-/* تنظیمات دکمه‌های عملیاتی */
-.actions {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.action-button {
-    background-color: #0066cc;
-    color: white;
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    flex: 1;
-    margin: 10px;
-    font-size: 30px;
-    text-align: center;
-    cursor: pointer;
 }
 
-.action-button:last-child {
-    margin-right: 0;
-}
-
-/* تنظیمات بخش تایید حساب */
-.account-verification {
-    background-color: #e0e0e0;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.verification-link {
-    color: #004aad;
-    text-decoration: underline;
-}
-
-/* تنظیمات تب‌ها */
-.tabs {
+nav ul {
+    list-style: none;
+    padding: 0;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.tab {
-    background-color: #ddd;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    font-size: 14px;
-    flex: 1;
-    text-align: center;
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-.tab.active {
-    background-color: #004aad;
-    color: white;
-}
-
-.tab:last-child {
-    margin-right: 0;
-}
-
-/* تنظیمات کارت‌های اسکرولی */
-.scroll-cards {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-.card {
-    background-color: #ffffff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 1px 1px rgb(0 0 0 / 20%);
-    flex: 1;
-    max-width: 300px;
-    height: 300px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: inline-block;
-}
-
-.card img {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 14px;
+    background-color: #3700b3;
     margin: 0;
 }
 
-/* تنظیمات فوتر */
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 .footer {
-    background-color: #ffffff;
+    background-color: #6200ea;
     color: white;
     padding: 10px 0;
-    margin: 5px 15px;
-    text-align: center;
-    border-radius: 10px;
-    position: fixed;
-    bottom: 20px;
-    left: 15px;
-    right: 15px;
-    z-index: 1000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .footer-nav {
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    padding: 10px 0;
 }
 
 .nav-item {
+    color: white;
     text-align: center;
-    color: rgb(142, 137, 137);
-    position: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-}
-
-.nav-item .nav-icon {
-    font-size: 30px;
-    margin-bottom: 0px;
+    flex: 1;
+    padding: 10px;
 }
 
 .nav-item.active {
-    color: #000000;
+    background-color: #3700b3;
+}
+
+.nav-icon {
+    font-size: 24px;
 }

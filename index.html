@@ -1,66 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAQF Web App</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+    <title>SAQF - صفحه اصلی</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <img src="https://raw.githubusercontent.com/m-eghlimi/saqf/main/photos/photo_2024-08-23%2004.04.54.jpeg" alt="SAQF">
-            </div>
-            <div class="header-icons">
-                <button class="add-icon material-icons">add_box</button>
-                <button class="profile-icon material-icons">person_add</button>
-            </div>
-        </div>
+    <header>
+        <div class="logo">SAQF</div>
+        <div class="profile-link">پروفایل</div>
     </header>
-    
-        <!-- Account Verification Section -->
-        <section class="account-verification">
-            <p>Hesabını onayla</p>
-            <a href="#" class="verification-link">Onayla</a>
+    <nav>
+        <ul>
+            <li><a href="#category1">دسته‌بندی موضوعات</a></li>
+            <li><a href="#marketplace">بازارچه ایرانی</a></li>
+            <li><a href="#profile">پروفایل</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="info-cards">
+            <!-- کارت‌های اطلاعاتی -->
+            <div class="card">مطلب ۱</div>
+            <div class="card">مطلب ۲</div>
+            <div class="card">مطلب ۳</div>
         </section>
-
-        <!-- Tabs Section -->
-        <section class="tabs">
-            <button class="tab active">همه</button>
-            <button class="tab">بازارچه</button>
-            <button class="tab">همخونه</button>
-        </section>
-
-        <!-- Horizontal Scroll Cards Section -->
-        <section class="scroll-cards">
-            <div class="card">
-                <img src="card_image1.jpg" alt="گهی ۱">
-                <p>اگهی های کاربر شماره دو و تست</p>
-            </div>
-            <div class="card">
-                <img src="card_image2.jpg" alt="آگهی ۲">
-                <p>اگهی های کاربر شماره دو و تست</p>
-            </div>
+        <section class="search-bar">
+            <input type="text" placeholder="جستجو...">
         </section>
     </main>
-
-    <!-- Footer Section -->
     <footer class="footer">
         <nav class="footer-nav">
-            <a href="#" class="nav-item active">
-                <span class="nav-icon material-icons">newspaper</span>
-            </a>
-            <a href="#" class="nav-item">
-                <span class="nav-icon material-icons">view_cozy</span>            </a>
-            <a href="#" class="nav-item">
-                <span class="nav-icon material-icons">storefront</span>            </a>
-            <a href="#" class="nav-item">
-                <span class="nav-icon material-icons">event_note</span>            </a>
+            <div class="nav-item">لینک ۱</div>
+            <div class="nav-item">لینک ۲</div>
+            <div class="nav-item">لینک ۳</div>
         </nav>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
